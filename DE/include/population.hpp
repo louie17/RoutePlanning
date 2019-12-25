@@ -78,7 +78,7 @@ namespace de
 			assert(popSize > 0);
 			assert(varCount > 0);
 
-			init(popSize, varCount+2);//增加了起始点与终止点
+			init(popSize, varCount);//增加了起始点与终止点
 
 			for (population::size_type i = 0; i < size(); ++i)
 				at(i)->init(startPoint,endPoint,constraints);

@@ -528,6 +528,7 @@ namespace de
 				processor_ptr p(m_processors[n]);
 				std::thread* th(new std::thread(std::ref(*p)));
 				m_threads->add_thread(th);
+
 			}
 		}
 

@@ -86,7 +86,7 @@ namespace de
 			* 用并行处理器的数量（4），目标函数和侦听器实例化处理器的集合。
 			*/
 			//processors< sphere_function >::processors_ptr _processors(std::make_shared< processors< sphere_function > >(4, std::ref(of), processor_listener));
-			processors< evaluation_route >::processors_ptr _processors(std::make_shared< processors< evaluation_route > >(4, std::ref(of), constraints, swRelation, processor_listener));
+			processors< evaluation_route >::processors_ptr _processors(std::make_shared< processors< evaluation_route > >(1, std::ref(of), constraints, swRelation, processor_listener));
 			/**
 			* 实例化一个简单的终止策略，它将在1000代之后停止优化过程。
 			*/

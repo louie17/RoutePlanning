@@ -123,8 +123,8 @@ namespace de
 		differential_evolution(size_t varCount, size_t popSize, typename processors< T >::processors_ptr processors,const Node &startNode, const Node &endNode, constraints_ptr constraints, bool minimize,termination_strategy_ptr terminationStrategy, selection_strategy_ptr selectionStrategy, mutation_strategy_ptr mutationStrategy, de::listener_ptr listener)
 			try
 
-			: m_varCount(varCount), m_popSize(popSize), m_pop1(std::make_shared< population >(popSize, varCount, startNode, endNode, constraints)),
-			m_pop2(std::make_shared< population >(popSize, varCount)), m_bestInd(m_pop1->best(minimize)),
+			: m_varCount(varCount), m_popSize(popSize), m_pop1(std::make_shared< population >(popSize, varCount+2, startNode, endNode, constraints)),
+			m_pop2(std::make_shared< population >(popSize, varCount+2)), m_bestInd(m_pop1->best(minimize)),
 			m_constraints(constraints), m_processors(processors), m_minimize(minimize), m_terminationStrategy(terminationStrategy),
 			m_listener(listener), m_selectionStrategy(selectionStrategy), m_mutationStrategy(mutationStrategy)
 		{

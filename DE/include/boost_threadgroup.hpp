@@ -25,6 +25,41 @@ namespace boost
 			}
 		}
 
+		bool is_this_thread_in()
+		{
+			std::thread::id id = std::this_thread::get_id();
+			std::lock_guard<std::mutex> guard(m);
+			for (std::list<std::thread*>::iterator it = threads.begin(), end = threads.end();
+				it != end;
+				++it)
+			{
+				if ((*it)->get_id() == id)
+					return true;
+			}
+			return false;
+		}
+
+		bool is_thread_in(std::thread* thrd)
+		{
+			if (thrd)
+			{
+				std::thread::id id = thrd->get_id();
+				std::lock_guard<std::mutex> guard(m);
+				for (std::list<std::thread*>::iterator it = threads.begin(), end = threads.end();
+					it != end;
+					++it)
+				{
+					if ((*it)->get_id() == id)
+						return true;
+				}
+				return false;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		template<typename F>
 		std::thread* create_thread(F threadfunc)
 		{
@@ -38,6 +73,7 @@ namespace boost
 		{
 			if (thrd)
 			{
+				assert(!is_thread_in(thrd));
 				std::lock_guard<std::mutex> guard(m);
 				threads.push_back(thrd);
 			}
@@ -55,10 +91,12 @@ namespace boost
 
 		void join_all()
 		{
+			assert(!is_this_thread_in());
 			std::lock_guard<std::mutex> guard(m);
 			for (auto it = threads.begin(), end = threads.end(); it != end; ++it)
 			{
-				(*it)->join();
+				if ((*it)->joinable())
+					(*it)->join();
 			}
 		}
 
