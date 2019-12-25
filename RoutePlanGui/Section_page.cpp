@@ -193,7 +193,7 @@ void Section_page::append_ecmstrategy_section()
 }
 void Section_page::del_ecmstrategy_section()
 {
-	unsigned int num = ui.tableWidget->currentRow();
+	size_t num = ui.tableWidget->currentRow();
 	int ree = QMessageBox::information(this, "", "Confirm deletion ? ", QStringLiteral("Yes"), QStringLiteral("No"));
 	if (ree != 0)
 	{
@@ -247,7 +247,7 @@ void Section_page::append_esmstrategy_section()
 }
 void Section_page::del_esmstrategy_section()
 {
-	unsigned int num = ui.tableWidget->currentRow();
+	size_t num = ui.tableWidget->currentRow();
 	int ree = QMessageBox::information(this, "", "Confirm deletion ? ", QStringLiteral("Yes"), QStringLiteral("No"));
 	if (ree != 0)
 	{

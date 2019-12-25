@@ -135,26 +135,26 @@ namespace sce
 		bool isOwnPlatformRouteRelationEmpty(void) { return m_OwnPlatformRouteRelation.empty() ? true : false; }
 
 
-		std::shared_ptr<Vertex> getPtr2Vertex(const unsigned int& pos);
-		std::shared_ptr<Platform> getPtr2Platform(const unsigned int& pos);
-		std::shared_ptr<Emitter> getPtr2Emitter(const unsigned int& pos);
-		std::shared_ptr<Weapon> getPtr2Weapon(const unsigned int& pos);
-		std::shared_ptr<Site> getPtr2Site(const unsigned int& pos);
-		std::shared_ptr<OwnPlatform> getPtr2OwnPlatform(const unsigned int& pos);
-		std::shared_ptr<Esm> getPtr2Esm(const unsigned int& pos);
-		std::shared_ptr<Ecm> getPtr2Ecm(const unsigned int& pos);
-		std::shared_ptr<Route> getPtr2Route(const unsigned int& pos);
-		std::shared_ptr<EsmStrategy> getPtr2EsmStrategy(const unsigned int& pos);
-		std::shared_ptr<EcmStrategy> getPtr2EcmStrategy(const unsigned int& pos);
+		std::shared_ptr<Vertex> getPtr2Vertex(const size_t& pos);
+		std::shared_ptr<Platform> getPtr2Platform(const size_t& pos);
+		std::shared_ptr<Emitter> getPtr2Emitter(const size_t& pos);
+		std::shared_ptr<Weapon> getPtr2Weapon(const size_t& pos);
+		std::shared_ptr<Site> getPtr2Site(const size_t& pos);
+		std::shared_ptr<OwnPlatform> getPtr2OwnPlatform(const size_t& pos);
+		std::shared_ptr<Esm> getPtr2Esm(const size_t& pos);
+		std::shared_ptr<Ecm> getPtr2Ecm(const size_t& pos);
+		std::shared_ptr<Route> getPtr2Route(const size_t& pos);
+		std::shared_ptr<EsmStrategy> getPtr2EsmStrategy(const size_t& pos);
+		std::shared_ptr<EcmStrategy> getPtr2EcmStrategy(const size_t& pos);
 
-		PlatformSiteRelation& getPlatformSiteRelation(const unsigned int& pos);
-		PlatformEmitterRelation& getPlatformEmitterRelation(const unsigned int& pos);
-		PlatformWeaponRelation& getPlatformWeaponRelation(const unsigned int& pos);
-		OwnPlatformEsmRelation& getOwnPlatformEsmRelation(const unsigned int& pos);
-		EsmEsmStrategyRelation& getEsmEsmStrategyRelation(const unsigned int& pos);
-		OwnPlatformEcmRelation& getOwnPlatformEcmRelation(const unsigned int& pos);
-		EcmEcmStrategyRelation& getEcmEcmStrategyRelation(const unsigned int& pos);
-		OwnPlatformRouteRelation& getOwnPlatformRouteRelation(const unsigned int& pos);
+		PlatformSiteRelation& getPlatformSiteRelation(const size_t& pos);
+		PlatformEmitterRelation& getPlatformEmitterRelation(const size_t& pos);
+		PlatformWeaponRelation& getPlatformWeaponRelation(const size_t& pos);
+		OwnPlatformEsmRelation& getOwnPlatformEsmRelation(const size_t& pos);
+		EsmEsmStrategyRelation& getEsmEsmStrategyRelation(const size_t& pos);
+		OwnPlatformEcmRelation& getOwnPlatformEcmRelation(const size_t& pos);
+		EcmEcmStrategyRelation& getEcmEcmStrategyRelation(const size_t& pos);
+		OwnPlatformRouteRelation& getOwnPlatformRouteRelation(const size_t& pos);
 
 
 		std::vector<std::shared_ptr<Vertex>>& getAllVertex(void);
@@ -179,17 +179,17 @@ namespace sce
 		std::vector<OwnPlatformRouteRelation>& getAllOwnPlatformRouteRelation(void);
 
 
-		bool setPtr2Vertex(const unsigned int& pos, std::shared_ptr<Vertex> ptr2Entity);
-		bool setPtr2Platform(const unsigned int& pos, std::shared_ptr<Platform> ptr2Entity);
-		bool setPtr2Emitter(const unsigned int& pos, std::shared_ptr<Emitter> ptr2Entity);
-		bool setPtr2Weapon(const unsigned int& pos, std::shared_ptr<Weapon> ptr2Entity);
-		bool setPtr2Site(const unsigned int& pos, std::shared_ptr<Site> ptr2Entity);
-		bool setPtr2OwnPlatform(const unsigned int& pos, std::shared_ptr<OwnPlatform> ptr2Entity);
-		bool setPtr2Esm(const unsigned int& pos, std::shared_ptr<Esm> ptr2Entity);
-		bool setPtr2Ecm(const unsigned int& pos, std::shared_ptr<Ecm> ptr2Entity);
-		bool setPtr2Route(const unsigned int& pos, std::shared_ptr<Route> ptr2Entity);
-		bool setPtr2EsmStrategy(const unsigned int& pos, std::shared_ptr<EsmStrategy> ptr2Entity);
-		bool setPtr2EcmStrategy(const unsigned int& pos, std::shared_ptr<EcmStrategy> ptr2Entity);
+		bool setPtr2Vertex(const size_t& pos, std::shared_ptr<Vertex> ptr2Entity);
+		bool setPtr2Platform(const size_t& pos, std::shared_ptr<Platform> ptr2Entity);
+		bool setPtr2Emitter(const size_t& pos, std::shared_ptr<Emitter> ptr2Entity);
+		bool setPtr2Weapon(const size_t& pos, std::shared_ptr<Weapon> ptr2Entity);
+		bool setPtr2Site(const size_t& pos, std::shared_ptr<Site> ptr2Entity);
+		bool setPtr2OwnPlatform(const size_t& pos, std::shared_ptr<OwnPlatform> ptr2Entity);
+		bool setPtr2Esm(const size_t& pos, std::shared_ptr<Esm> ptr2Entity);
+		bool setPtr2Ecm(const size_t& pos, std::shared_ptr<Ecm> ptr2Entity);
+		bool setPtr2Route(const size_t& pos, std::shared_ptr<Route> ptr2Entity);
+		bool setPtr2EsmStrategy(const size_t& pos, std::shared_ptr<EsmStrategy> ptr2Entity);
+		bool setPtr2EcmStrategy(const size_t& pos, std::shared_ptr<EcmStrategy> ptr2Entity);
 
 		void addVertex(std::shared_ptr<Vertex> ptr2Entity);
 		void addPlatform(std::shared_ptr<Platform> ptr2Entity);
@@ -203,39 +203,39 @@ namespace sce
 		void addEsmStrategy(std::shared_ptr<EsmStrategy> ptr2Entity);
 		void addEcmStrategy(std::shared_ptr<EcmStrategy> ptr2Entity);
 
-		bool insertPtr2Vertex(const unsigned int& pos, std::shared_ptr<Vertex> ptr2Entity);
-		bool insertPtr2Platform(const unsigned int& pos, std::shared_ptr<Platform> ptr2Entity);
-		bool insertPtr2Emitter(const unsigned int& pos, std::shared_ptr<Emitter>ptr2Entity);
-		bool insertPtr2Weapon(const unsigned int& pos, std::shared_ptr<Weapon> ptr2Entity);
-		bool insertPtr2Site(const unsigned int& pos, std::shared_ptr<Site> ptr2Entity);
-		bool insertPtr2OwnPlatform(const unsigned int& pos, std::shared_ptr<OwnPlatform> ptr2Entity);
-		bool insertPtr2Esm(const unsigned int& pos, std::shared_ptr<Esm> ptr2Entity);
-		bool insertPtr2Ecm(const unsigned int& pos, std::shared_ptr<Ecm> ptr2Entity);
-		bool insertPtr2Route(const unsigned int& pos, std::shared_ptr<Route> ptr2Entity);
-		bool insertPtr2EsmStrategy(const unsigned int& pos, std::shared_ptr<EsmStrategy> ptr2Entity);
-		bool insertPtr2EcmStrategy(const unsigned int& pos, std::shared_ptr<EcmStrategy> ptr2Entity);
+		bool insertPtr2Vertex(const size_t& pos, std::shared_ptr<Vertex> ptr2Entity);
+		bool insertPtr2Platform(const size_t& pos, std::shared_ptr<Platform> ptr2Entity);
+		bool insertPtr2Emitter(const size_t& pos, std::shared_ptr<Emitter>ptr2Entity);
+		bool insertPtr2Weapon(const size_t& pos, std::shared_ptr<Weapon> ptr2Entity);
+		bool insertPtr2Site(const size_t& pos, std::shared_ptr<Site> ptr2Entity);
+		bool insertPtr2OwnPlatform(const size_t& pos, std::shared_ptr<OwnPlatform> ptr2Entity);
+		bool insertPtr2Esm(const size_t& pos, std::shared_ptr<Esm> ptr2Entity);
+		bool insertPtr2Ecm(const size_t& pos, std::shared_ptr<Ecm> ptr2Entity);
+		bool insertPtr2Route(const size_t& pos, std::shared_ptr<Route> ptr2Entity);
+		bool insertPtr2EsmStrategy(const size_t& pos, std::shared_ptr<EsmStrategy> ptr2Entity);
+		bool insertPtr2EcmStrategy(const size_t& pos, std::shared_ptr<EcmStrategy> ptr2Entity);
 
-		bool deleteVertex(const unsigned int& pos);
-		bool deletePlatform(const unsigned int& pos);
-		bool deleteEmitter(const unsigned int& pos);
-		bool deleteWeapon(const unsigned int& pos);
-		bool deleteSite(const unsigned int& pos);
-		bool deleteOwnPlatform(const unsigned int& pos);
-		bool deleteEsm(const unsigned int& pos);
-		bool deleteEcm(const unsigned int& pos);
-		bool deleteRoute(const unsigned int& pos);
-		bool deleteEsmStrategy(const unsigned int& pos);
-		bool deleteEcmStrategy(const unsigned int& pos);
+		bool deleteVertex(const size_t& pos);
+		bool deletePlatform(const size_t& pos);
+		bool deleteEmitter(const size_t& pos);
+		bool deleteWeapon(const size_t& pos);
+		bool deleteSite(const size_t& pos);
+		bool deleteOwnPlatform(const size_t& pos);
+		bool deleteEsm(const size_t& pos);
+		bool deleteEcm(const size_t& pos);
+		bool deleteRoute(const size_t& pos);
+		bool deleteEsmStrategy(const size_t& pos);
+		bool deleteEcmStrategy(const size_t& pos);
 
 
-		bool setPlatformSiteRelation(const unsigned int& pos, PlatformSiteRelation& relation);
-		bool setPlatformEmitterRelation(const unsigned int& pos, PlatformEmitterRelation& relation);
-		bool setPlatformWeaponRelation(const unsigned int& pos, PlatformWeaponRelation& relation);
-		bool setOwnPlatformEsmRelation(const unsigned int& pos, OwnPlatformEsmRelation& relation);
-		bool setEsmEsmStrategyRelation(const unsigned int& pos, EsmEsmStrategyRelation& relation);
-		bool setOwnPlatformEcmRelation(const unsigned int& pos, OwnPlatformEcmRelation& relation);
-		bool setEcmEcmStrategyRelation(const unsigned int& pos, EcmEcmStrategyRelation& relation);
-		bool setOwnPlatformRouteRelation(const unsigned int& pos, OwnPlatformRouteRelation& relation);
+		bool setPlatformSiteRelation(const size_t& pos, PlatformSiteRelation& relation);
+		bool setPlatformEmitterRelation(const size_t& pos, PlatformEmitterRelation& relation);
+		bool setPlatformWeaponRelation(const size_t& pos, PlatformWeaponRelation& relation);
+		bool setOwnPlatformEsmRelation(const size_t& pos, OwnPlatformEsmRelation& relation);
+		bool setEsmEsmStrategyRelation(const size_t& pos, EsmEsmStrategyRelation& relation);
+		bool setOwnPlatformEcmRelation(const size_t& pos, OwnPlatformEcmRelation& relation);
+		bool setEcmEcmStrategyRelation(const size_t& pos, EcmEcmStrategyRelation& relation);
+		bool setOwnPlatformRouteRelation(const size_t& pos, OwnPlatformRouteRelation& relation);
 
 		void addPlatformSiteRelation(PlatformSiteRelation& relation);
 		void addPlatformEmitterRelation(PlatformEmitterRelation& relation);
@@ -246,23 +246,23 @@ namespace sce
 		void addEcmEcmStrategyRelation(EcmEcmStrategyRelation& relation);
 		void addOwnPlatformRouteRelation(OwnPlatformRouteRelation& relation);
 
-		bool insertPlatformSiteRelation(const unsigned int& pos, PlatformSiteRelation& relation);
-		bool insertPlatformEmitterRelation(const unsigned int& pos, PlatformEmitterRelation& relation);
-		bool insertPlatformWeaponRelation(const unsigned int& pos, PlatformWeaponRelation& relation);
-		bool insertOwnPlatformEsmRelation(const unsigned int& pos, OwnPlatformEsmRelation& relation);
-		bool insertEsmEsmStrategyRelation(const unsigned int& pos, EsmEsmStrategyRelation& relation);
-		bool insertOwnPlatformEcmRelation(const unsigned int& pos, OwnPlatformEcmRelation& relation);
-		bool insertEcmEcmStrategyRelation(const unsigned int& pos, EcmEcmStrategyRelation& relation);
-		bool insertOwnPlatformRouteRelation(const unsigned int& pos, OwnPlatformRouteRelation& relation);
+		bool insertPlatformSiteRelation(const size_t& pos, PlatformSiteRelation& relation);
+		bool insertPlatformEmitterRelation(const size_t& pos, PlatformEmitterRelation& relation);
+		bool insertPlatformWeaponRelation(const size_t& pos, PlatformWeaponRelation& relation);
+		bool insertOwnPlatformEsmRelation(const size_t& pos, OwnPlatformEsmRelation& relation);
+		bool insertEsmEsmStrategyRelation(const size_t& pos, EsmEsmStrategyRelation& relation);
+		bool insertOwnPlatformEcmRelation(const size_t& pos, OwnPlatformEcmRelation& relation);
+		bool insertEcmEcmStrategyRelation(const size_t& pos, EcmEcmStrategyRelation& relation);
+		bool insertOwnPlatformRouteRelation(const size_t& pos, OwnPlatformRouteRelation& relation);
 
-		bool deletePlatformSiteRelation(const unsigned int& pos);
-		bool deletePlatformEmitterRelation(const unsigned int& pos);
-		bool deletePlatformWeaponRelation(const unsigned int& pos);
-		bool deleteOwnPlatformEsmRelation(const unsigned int& pos);
-		bool deleteEsmEsmStrategyRelation(const unsigned int& pos);
-		bool deleteOwnPlatformEcmRelation(const unsigned int& pos);
-		bool deleteEcmEcmStrategyRelation(const unsigned int& pos);
-		bool deleteOwnPlatformRouteRelation(const unsigned int& pos);
+		bool deletePlatformSiteRelation(const size_t& pos);
+		bool deletePlatformEmitterRelation(const size_t& pos);
+		bool deletePlatformWeaponRelation(const size_t& pos);
+		bool deleteOwnPlatformEsmRelation(const size_t& pos);
+		bool deleteEsmEsmStrategyRelation(const size_t& pos);
+		bool deleteOwnPlatformEcmRelation(const size_t& pos);
+		bool deleteEcmEcmStrategyRelation(const size_t& pos);
+		bool deleteOwnPlatformRouteRelation(const size_t& pos);
 
 		void setAllVertex(std::vector<std::shared_ptr<Vertex>>& ptr2AllEntities);
 		void setAllPlatform(std::vector<std::shared_ptr<Platform>>& ptr2AllEntities);
@@ -370,32 +370,32 @@ namespace sce
 	public:
 		Rf_values(void);
 
-		Rf_values(const unsigned int &,
-			const unsigned int &,
-			const unsigned int &,
-			const unsigned int &,
-			const unsigned int &);
+		Rf_values(const size_t &,
+			const size_t &,
+			const size_t &,
+			const size_t &,
+			const size_t &);
 
 		//get method
-		const unsigned int& getPhaseOrder(void) const;
-		const unsigned int& getNumberOfPulses(void) const;
-		const unsigned int& getMin(void) const;
-		const unsigned int& getMax(void) const;
-		const unsigned int& getSweepTime(void) const;
+		const size_t& getPhaseOrder(void) const;
+		const size_t& getNumberOfPulses(void) const;
+		const size_t& getMin(void) const;
+		const size_t& getMax(void) const;
+		const size_t& getSweepTime(void) const;
 
 		//set method
-		void setPhaseOrder(const unsigned int &);
-		void setNumberOfPulses(const unsigned int &);
-		void setMin(const unsigned int &);
-		void setMax(const unsigned int &);
-		void setSweepTime(const unsigned int &);
+		void setPhaseOrder(const size_t &);
+		void setNumberOfPulses(const size_t &);
+		void setMin(const size_t &);
+		void setMax(const size_t &);
+		void setSweepTime(const size_t &);
 
 	private:
-		unsigned int m_phaseOrder;
-		unsigned int m_numberOfPulses;
-		unsigned int m_min;
-		unsigned int m_max;
-		unsigned int m_sweepTime;
+		size_t m_phaseOrder;
+		size_t m_numberOfPulses;
+		size_t m_min;
+		size_t m_max;
+		size_t m_sweepTime;
 	};
 
 	enum class RfType
@@ -411,18 +411,18 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Rf(void);
-		Rf(const unsigned int &, const unsigned int &);
-		Rf(const unsigned int &, const unsigned int &, const RfType &);
+		Rf(const size_t &, const size_t &);
+		Rf(const size_t &, const size_t &, const RfType &);
 
-		Rf(const unsigned int &, const unsigned int &, const Rf_values &, const RfType &);
-		Rf(const unsigned int &, const unsigned int &, const std::vector<Rf_values> &, const RfType &);
+		Rf(const size_t &, const size_t &, const Rf_values &, const RfType &);
+		Rf(const size_t &, const size_t &, const std::vector<Rf_values> &, const RfType &);
 
 		//Rf(const Rf& rf);
 		//Rf& operator=(const Rf& rf);
 
 		//get mehtod
-		const unsigned int& getRfMin(void) const;
-		const unsigned int& getRfMax(void) const;
+		const size_t& getRfMin(void) const;
+		const size_t& getRfMax(void) const;
 		const RfType& getRfType(void) const;
 
 		//获取容纳Pri_values的容器对象
@@ -433,36 +433,36 @@ namespace sce
 
 		//根据values的索引值获取不同values的对象。
 		//在获取values前应判断容器是否为空
-		Rf_values& getRfValue(const unsigned int& valueOrder);
+		Rf_values& getRfValue(const size_t& valueOrder);
 
 		//add Rf_values
 		void addRfValues(const Rf_values &);
 
 		//Values值设置/替换
-		bool setRfValues(const unsigned int& pos, const Rf_values &);
+		bool setRfValues(const size_t& pos, const Rf_values &);
 
 		//insert Rf_values
-		bool insertRfValues(const unsigned int& pos, const Rf_values &);
+		bool insertRfValues(const size_t& pos, const Rf_values &);
 
 		//delete Rf_values
-		bool deleteRfValues(const unsigned int& pos);
+		bool deleteRfValues(const size_t& pos);
 
 		//set method
-		void setRfMin(const unsigned int &);
-		void setRfMax(const unsigned int &);
+		void setRfMin(const size_t &);
+		void setRfMax(const size_t &);
 		void setRfType(const RfType &);
 
 		//赋值覆盖，可用此成员函数覆盖住默认构造函数初始化的对象
 		void setAllRfValues(const std::vector<Rf_values>&);
 
 	private:
-		unsigned int m_min;
-		unsigned int m_max;
+		size_t m_min;
+		size_t m_max;
 		RfType m_type;
 		std::vector<Rf_values> m_values;
 
 	public:
-		//const Rf_values &operator[](unsigned int valuesOrder) const;
+		//const Rf_values &operator[](size_t valuesOrder) const;
 	};
 
 	class Pw_values
@@ -470,28 +470,28 @@ namespace sce
 	public:
 
 		Pw_values(void);
-		Pw_values(const unsigned int & pOrder, const unsigned int & numOfPulses, const unsigned int & min, const unsigned int & max, const unsigned int & sweepTime);
+		Pw_values(const size_t & pOrder, const size_t & numOfPulses, const size_t & min, const size_t & max, const size_t & sweepTime);
 
 		//get method
-		const unsigned int& getPhaseOrder(void) const;
-		const unsigned int& getNumberOfPulses(void) const;
-		const unsigned int& getMin(void) const;
-		const unsigned int& getMax(void) const;
-		const unsigned int& getSweepTime(void) const;
+		const size_t& getPhaseOrder(void) const;
+		const size_t& getNumberOfPulses(void) const;
+		const size_t& getMin(void) const;
+		const size_t& getMax(void) const;
+		const size_t& getSweepTime(void) const;
 
 		//set method
-		void setPhaseOrder(const unsigned int &);
-		void setNumberOfPulses(const unsigned int &);
-		void setMin(const unsigned int &);
-		void setMax(const unsigned int &);
-		void setSweepTime(const unsigned int &);
+		void setPhaseOrder(const size_t &);
+		void setNumberOfPulses(const size_t &);
+		void setMin(const size_t &);
+		void setMax(const size_t &);
+		void setSweepTime(const size_t &);
 
 	private:
-		unsigned int m_phaseOrder;
-		unsigned int m_numberOfPulses;
-		unsigned int m_min;
-		unsigned int m_max;
-		unsigned int m_sweepTime;
+		size_t m_phaseOrder;
+		size_t m_numberOfPulses;
+		size_t m_min;
+		size_t m_max;
+		size_t m_sweepTime;
 	};
 
 	enum class PwType
@@ -506,15 +506,15 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Pw(void);
-		Pw(const unsigned int &, const unsigned int &);
-		Pw(const unsigned int &, const unsigned int &, const PwType &);
+		Pw(const size_t &, const size_t &);
+		Pw(const size_t &, const size_t &, const PwType &);
 
-		Pw(const unsigned int &, const unsigned int &, const Pw_values &, const PwType &);
-		Pw(const unsigned int &, const unsigned int &, const std::vector<Pw_values > &, const PwType &);
+		Pw(const size_t &, const size_t &, const Pw_values &, const PwType &);
+		Pw(const size_t &, const size_t &, const std::vector<Pw_values > &, const PwType &);
 
 		//get mehtod
-		const unsigned int& getPwMin(void) const;
-		const unsigned int& getPwMax(void) const;
+		const size_t& getPwMin(void) const;
+		const size_t& getPwMax(void) const;
 		const PwType& getPwType(void) const;
 
 		//获取容纳Pri_values的容器对象
@@ -525,36 +525,36 @@ namespace sce
 
 		//根据values的索引值获取不同values的对象。
 		//在获取values前应判断容器是否为空
-		Pw_values& getPwValue(unsigned int valueOrder);
+		Pw_values& getPwValue(size_t valueOrder);
 
 		//add Pw_values
 		void addPriValues(Pw_values &);
 
 		//Values值设置/替换
-		bool setPwValues(const unsigned int& pos, const Pw_values &);
+		bool setPwValues(const size_t& pos, const Pw_values &);
 
 		//insert Pw_values
-		bool insertPwValues(unsigned int pos, Pw_values &);
+		bool insertPwValues(size_t pos, Pw_values &);
 
 		//delete Pw_values
-		bool deletePwValues(unsigned int pos);
+		bool deletePwValues(size_t pos);
 
 		//set method
-		void setPwMin(const unsigned int &);
-		void setPwMax(const unsigned int &);
+		void setPwMin(const size_t &);
+		void setPwMax(const size_t &);
 		void setPwType(const PwType &);
 
 		//赋值覆盖，可用此成员函数覆盖住默认构造函数初始化的对象
 		void setAllPwValues(const std::vector<Pw_values>&);
 
 	private:
-		unsigned int m_min;
-		unsigned int m_max;
+		size_t m_min;
+		size_t m_max;
 		PwType m_type;
 		std::vector<Pw_values> m_values;
 
 	public:
-		//const Pw_values &operator[](unsigned int valuesOrder) const;
+		//const Pw_values &operator[](size_t valuesOrder) const;
 	};
 
 	class Pri_values
@@ -562,32 +562,32 @@ namespace sce
 	public:
 		Pri_values(void);
 
-		Pri_values(const unsigned int &,
-			const unsigned int &,
-			const unsigned int &,
-			const unsigned int &,
-			const unsigned int &);
+		Pri_values(const size_t &,
+			const size_t &,
+			const size_t &,
+			const size_t &,
+			const size_t &);
 
 		//get method
-		const unsigned int& getPhaseOrder(void) const;
-		const unsigned int& getNumberOfPulses(void) const;
-		const unsigned int& getMin(void) const;
-		const unsigned int& getMax(void) const;
-		const unsigned int& getSweepTime(void) const;
+		const size_t& getPhaseOrder(void) const;
+		const size_t& getNumberOfPulses(void) const;
+		const size_t& getMin(void) const;
+		const size_t& getMax(void) const;
+		const size_t& getSweepTime(void) const;
 
 		//set method
-		void setPhaseOrder(const unsigned int &);
-		void setNumberOfPulses(const unsigned int &);
-		void setMin(const unsigned int &);
-		void setMax(const unsigned int &);
-		void setSweepTime(const unsigned int &);
+		void setPhaseOrder(const size_t &);
+		void setNumberOfPulses(const size_t &);
+		void setMin(const size_t &);
+		void setMax(const size_t &);
+		void setSweepTime(const size_t &);
 
 	private:
-		unsigned int m_phaseOrder;
-		unsigned int m_numberOfPulses;
-		unsigned int m_min;
-		unsigned int m_max;
-		unsigned int m_sweepTime;
+		size_t m_phaseOrder;
+		size_t m_numberOfPulses;
+		size_t m_min;
+		size_t m_max;
+		size_t m_sweepTime;
 	};
 
 	enum class PriType
@@ -604,14 +604,14 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Pri(void);
-		Pri(const unsigned int &, const unsigned int &);
-		Pri(const unsigned int &, const unsigned int &, const PriType &);
-		Pri(const unsigned int &, const unsigned int &, const Pri_values &, const PriType &);
-		Pri(const unsigned int &, const unsigned int &, const std::vector<Pri_values> &, const PriType &);
+		Pri(const size_t &, const size_t &);
+		Pri(const size_t &, const size_t &, const PriType &);
+		Pri(const size_t &, const size_t &, const Pri_values &, const PriType &);
+		Pri(const size_t &, const size_t &, const std::vector<Pri_values> &, const PriType &);
 
 		//get mehtod
-		const unsigned int& getPriMin(void) const;
-		const unsigned int& getPriMax(void) const;
+		const size_t& getPriMin(void) const;
+		const size_t& getPriMax(void) const;
 		const PriType& getPriType(void) const;
 
 		//获取容纳Pri_values的容器对象
@@ -622,36 +622,36 @@ namespace sce
 
 		//根据Pri_value的顺序获取不同Pri_values的对象。
 		//在获取Pri_value前应判断容器是否为空
-		Pri_values& getPriValue(unsigned int valueOrder);
+		Pri_values& getPriValue(size_t valueOrder);
 
 		//set method
-		void setPriMin(const unsigned int &);
-		void setPriMax(const unsigned int &);
+		void setPriMin(const size_t &);
+		void setPriMax(const size_t &);
 		void setPriType(const PriType &);
 
 		//add Pri_values
 		void addPriValues(Pri_values &);
 
 		//Values值设置/替换
-		bool setPriValues(const unsigned int& pos, const Pri_values &);
+		bool setPriValues(const size_t& pos, const Pri_values &);
 
 		//insert Pri_values
-		bool insertPriValues(unsigned int pos, Pri_values &);
+		bool insertPriValues(size_t pos, Pri_values &);
 
 		//delete Pri_values
-		bool deletePriValues(unsigned int pos);
+		bool deletePriValues(size_t pos);
 
 		//赋值覆盖，可用此成员函数覆盖住默认构造函数初始化的对象
 		void setAllPriValues(const std::vector<Pri_values>&);
 
 	private:
-		unsigned int m_min;
-		unsigned int m_max;
+		size_t m_min;
+		size_t m_max;
 		PriType m_type;
 		std::vector<Pri_values> m_values;
 
 	public:
-		//const Pri_values &operator[](unsigned int valuesOrder) const;
+		//const Pri_values &operator[](size_t valuesOrder) const;
 	};
 
 	enum class ScanType
@@ -664,21 +664,21 @@ namespace sce
 	public:
 
 		Scan(void);
-		Scan(const unsigned int &, const unsigned int &, const ScanType &);
+		Scan(const size_t &, const size_t &, const ScanType &);
 
 		//get mehtod
-		const unsigned int& getScanMin(void) const;
-		const unsigned int& getScanMax(void) const;
+		const size_t& getScanMin(void) const;
+		const size_t& getScanMax(void) const;
 		const ScanType& getScanType(void) const;
 
 		//set method
-		void setScanMin(const unsigned int &);
-		void setScanMax(const unsigned int &);
+		void setScanMin(const size_t &);
+		void setScanMax(const size_t &);
 		void setScanType(const ScanType &);
 
 	private:
-		unsigned int m_min;
-		unsigned int m_max;
+		size_t m_min;
+		size_t m_max;
 		ScanType m_type;
 	};
 
@@ -687,20 +687,20 @@ namespace sce
 	public:
 
 		Erp(void);
-		Erp(const unsigned int &, const unsigned int &);
+		Erp(const size_t &, const size_t &);
 
 		//get mehtod
-		const unsigned int& getErpMin(void) const;
-		const unsigned int& getErpMax(void) const;
+		const size_t& getErpMin(void) const;
+		const size_t& getErpMax(void) const;
 
 		//set method
-		void setErpMin(const unsigned int &);
-		void setErpMax(const unsigned int &);
+		void setErpMin(const size_t &);
+		void setErpMax(const size_t &);
 
 
 	private:
-		unsigned int m_min;
-		unsigned int m_max;
+		size_t m_min;
+		size_t m_max;
 	};
 
 	enum class ModeType
@@ -772,19 +772,19 @@ namespace sce
 		bool isRadarModeEmpty(void);
 
 		//按索引获取RadarMode
-		const std::shared_ptr<Radar_Mode> getPtr2RadarMode(unsigned int valueOrder) const;
+		const std::shared_ptr<Radar_Mode> getPtr2RadarMode(size_t valueOrder) const;
 
 		//add method
 		void addRadarMode(const std::shared_ptr<Radar_Mode>);
 
 		//按照索引设置/修改RadarMode
-		bool setPtr2RadarMode(unsigned int& pos, std::shared_ptr<Radar_Mode>);
+		bool setPtr2RadarMode(size_t& pos, std::shared_ptr<Radar_Mode>);
 
 		//insert
-		bool insertRadarMode(unsigned int& pos, std::shared_ptr<Radar_Mode>);
+		bool insertRadarMode(size_t& pos, std::shared_ptr<Radar_Mode>);
 
 		//delete
-		bool deleteRadarMode(unsigned int& pos);
+		bool deleteRadarMode(size_t& pos);
 
 		//set method
 		void setName(const std::string& name);
@@ -802,21 +802,21 @@ namespace sce
 	public:
 		//不用使用标准容器类直接装带有string类型成员数据的类对象，而应该是该对象的指针
 		Weapon(void);
-		Weapon(const std::string&, const unsigned int&, const unsigned int&);
+		Weapon(const std::string&, const size_t&, const size_t&);
 
 		const std::string& getName(void) const;
-		const unsigned int& getCEPR(void) const;
-		const unsigned int& getWeaponAreaCoverage(void) const;
+		const size_t& getCEPR(void) const;
+		const size_t& getWeaponAreaCoverage(void) const;
 
 		void setName(const std::string&);
-		void setCEPR(const unsigned int&);
-		void setWeaponAreaCoverage(const unsigned int&);
+		void setCEPR(const size_t&);
+		void setWeaponAreaCoverage(const size_t&);
 
 
 	private:
 		std::string m_name;
-		unsigned int m_cepr;
-		unsigned int m_weaponAreaCoverage;
+		size_t m_cepr;
+		size_t m_weaponAreaCoverage;
 	};
 
 	class Site
@@ -916,15 +916,15 @@ namespace sce
 		bool isTargetPointEmpty(void);
 
 		//返回非常量引用可以连续调用成员变量类的成员函数
-		Point& getTargetPoint(unsigned int& pointOrder);
+		Point& getTargetPoint(const size_t& pos);
 
 		void addTargetPoint(const Point&);
 
-		bool setTargetPoint(unsigned int& pos, const Point&);
+		bool setTargetPoint(const size_t& pos, const Point&);
 
-		bool insertTargetPoint(unsigned int& pos, const Point&);
+		bool insertTargetPoint(const size_t& pos, const Point&);
 
-		bool deleteTargetPoint(unsigned int& pos);
+		bool deleteTargetPoint(const size_t& pos);
 
 		void setMissionType(const MissionType&);
 		void setStartPoint(const Point&);
@@ -990,29 +990,29 @@ namespace sce
 	{
 	public:
 		Esm(void);
-		Esm(const std::string&, const double&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&);
-		Esm(const std::string&, const double&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&, const double&, const unsigned int&, const double&, const double&, const double&);
+		Esm(const std::string&, const double&, const size_t&, const size_t&, const size_t&, const size_t&, const size_t&);
+		Esm(const std::string&, const double&, const size_t&, const size_t&, const size_t&, const size_t&, const size_t&, const double&, const size_t&, const double&, const double&, const double&);
 
 		const std::string& getName(void);
 		const double& getDwellFreqResolution(void);
-		const unsigned int& getTuningStep(void);
-		const unsigned int& getRfCovMin(void);
-		const unsigned int& getRfCovMax(void);
-		const unsigned int& getNumPulsesAcquisition(void);
-		const unsigned int& getNumPulsesAlarm(void);
+		const size_t& getTuningStep(void);
+		const size_t& getRfCovMin(void);
+		const size_t& getRfCovMax(void);
+		const size_t& getNumPulsesAcquisition(void);
+		const size_t& getNumPulsesAlarm(void);
 		const double& getesmMinDwellTime(void) { return m_esmMinDwellTime; }
-		const unsigned int& getnEmitter(void) { return m_nEmitter; }
+		const size_t& getnEmitter(void) { return m_nEmitter; }
 		const double& gettaoScan(void) { return m_taoScan; }
 		const double& getPmin(void) { return m_Pmin; }
 		const double& getAeff(void) { return m_Aeff; }
 
 		void setName(const std::string&);
 		void setDwellFreqResolution(const double&);
-		void setTuningStep(const unsigned int&);
-		void setRfCovMin(const unsigned int&);
-		void setRfCovMax(const unsigned int&);
-		void setNumPulsesAcquisition(const unsigned int&);
-		void setNumPulsesAlarm(const unsigned int&);
+		void setTuningStep(const size_t&);
+		void setRfCovMin(const size_t&);
+		void setRfCovMax(const size_t&);
+		void setNumPulsesAcquisition(const size_t&);
+		void setNumPulsesAlarm(const size_t&);
 		void setesmMinDwellTime(const double&);
 		void setnEmitter(const int&);
 		void settaoScan(const double&);
@@ -1022,13 +1022,13 @@ namespace sce
 	private:
 		std::string m_name;
 		double m_dwellFreqResolution;
-		unsigned int m_tuningStep;
-		unsigned int m_rfCovMin;
-		unsigned int m_rfCovMax;
-		unsigned int m_numPulsesAcquisition;
-		unsigned int m_numPulsesAlarm;
+		size_t m_tuningStep;
+		size_t m_rfCovMin;
+		size_t m_rfCovMax;
+		size_t m_numPulsesAcquisition;
+		size_t m_numPulsesAlarm;
 		double m_esmMinDwellTime;
-		unsigned int m_nEmitter;
+		size_t m_nEmitter;
 		double m_taoScan;
 		double m_Pmin;
 		double m_Aeff;
@@ -1046,16 +1046,15 @@ namespace sce
 	{
 	public:
 		Ecm(void);
-		Ecm(const std::string&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&);
-		Ecm(const std::string&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&, const Tech&);
-		Ecm(const std::string&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&, const std::vector<Tech>&);
-		Ecm(const std::string&, const unsigned int&, const unsigned int&, const unsigned int&, const unsigned int&, const std::vector<Tech>&, const double&, const double&, const double&, const double&, const double&);
-
+		Ecm(const std::string &name, const size_t &pt, const size_t &gain, const size_t &rfMin, const size_t &rfMax);
+		Ecm(const std::string &name, const size_t &pt, const size_t &gain, const size_t &rfmin, const size_t &rfmax, const Tech& techName);
+		Ecm(const std::string &name, const size_t &pt, const size_t &gain, const size_t &rfmin, const size_t &rfmax, const std::vector<Tech> &techName);
+		Ecm(const std::string &name, const size_t &pt, const size_t &gain, const size_t &rfmin, const size_t &rfmax, const std::vector<Tech> &techName,	const double &radarMSR, const double &jammerERP_support, const double &platformRCS, const double &radarDangerValue, const double &jammerERP_attack);
 		const std::string& getName(void);
-		const unsigned int& getPt(void);
-		const unsigned int& getGain(void);
-		const unsigned int& getRfMin(void);
-		const unsigned int& getRfMax(void);
+		const size_t& getPt(void);
+		const size_t& getGain(void);
+		const size_t& getRfMin(void);
+		const size_t& getRfMax(void);
 		const double& getjammerERP_attack(void) { return m_jammerERP_attack; }
 		const double& getradarDangerValue(void) { return m_radarDangerValue; }
 		const double& getplatformRCS(void) { return m_platformRCS; }
@@ -1069,26 +1068,26 @@ namespace sce
 		bool isTechEmpty(void);
 
 		//根据索引值找寻对应的Tech
-		const Tech& getTech(const unsigned int& order);
+		const Tech& getTech(const size_t& pos);
 
 		//add Tech
-		void addTech(const Tech&);
+		void addTech(const Tech& techname);
 
 		//对单个Tech进行设置，更改
-		bool setTech(const unsigned int& pos, const Tech&);
+		bool setTech(const size_t& pos, const Tech& techname);
 
 		//insert Tech
-		bool insertTech(const unsigned int& pos, const Tech&);
+		bool insertTech(const size_t& pos, const Tech& techname);
 
 		//delete Tech
-		bool deleteTech(const unsigned int& pos);
+		bool deleteTech(const size_t& pos);
 
 		//set method
-		void setName(const std::string&);
-		void setPt(const unsigned int&);
-		void setGain(const unsigned int&);
-		void setRfMin(const unsigned int&);
-		void setRfMax(const unsigned int&);
+		void setName(const std::string& name);
+		void setPt(const size_t& pt);
+		void setGain(const size_t& gain);
+		void setRfMin(const size_t& rfMin);
+		void setRfMax(const size_t& rfMax);
 		void setradarMSR(const double &radarMSR);
 		void setjammerERP_support(const double &jammerERP_support);
 		void setplatformRCS(const double &platformRCS);
@@ -1096,14 +1095,14 @@ namespace sce
 		void setjammerERP_attack(const double &jammerERP_attack);
 
 		//以容器为单位，整体赋值修改
-		void setAllTechs(const std::vector<Tech>&);
+		void setAllTechs(const std::vector<Tech>& techs);
 
 	private:
 		std::string m_name;
-		unsigned int m_pt;
-		unsigned int m_gain;
-		unsigned int m_rfMin;
-		unsigned int m_rfMax;
+		size_t m_pt;
+		size_t m_gain;
+		size_t m_rfMin;
+		size_t m_rfMax;
 		std::vector<Tech> m_techName;
 		double m_radarMSR;
 		double m_jammerERP_support;
@@ -1116,12 +1115,12 @@ namespace sce
 	{
 	public:
 		WayPoint(void);
-		WayPoint(const double&, const double&, const double&);
-		WayPoint(const unsigned int&, const double&, const double&, const double&);
-		WayPoint(const unsigned int&, const double&, const double&, const double&, const double&, const double&, const double&);
+		WayPoint(const double &longitude, const double &latitude, const double &altitude);
+		WayPoint(const size_t&index, const double &longitude, const double &latitude, const double &altitude);
+		WayPoint(const size_t&index, const double &longitude, const double &latitude, const double &altitude, const double &time, const double&velocity, const double &acceleration);
 
 		//get latitude and longitude
-		const unsigned int& getIndex(void) const;
+		const size_t& getIndex(void) const;
 		const double& getAltitude(void) const;
 		const double& getLatitude(void) const;
 		const double& getLongitude(void) const;
@@ -1130,7 +1129,7 @@ namespace sce
 		const double& getAcceleration(void) const;
 
 		//set latitude and longitute
-		void setIndex(const unsigned int &);
+		void setIndex(const size_t &);
 		void setAltitude(const double &);
 		void setLatitude(const double &);
 		void setLongitude(const double &);
@@ -1145,16 +1144,16 @@ namespace sce
 		double m_time;
 		double m_velocity;
 		double m_acceleration;
-		unsigned int m_index;
+		size_t m_index;
 	};
 
 	class Route
 	{
 	public:
 		Route(void);
-		Route(const std::string&);
-		Route(const std::string&, const WayPoint&);
-		Route(const std::string&, const std::vector<WayPoint>&);
+		Route(const std::string& name);
+		Route(const std::string&name, const WayPoint& wayPoint);
+		Route(const std::string&name, const std::vector<WayPoint>& wayPoints);
 
 		//get name
 		const std::string& getName(void);
@@ -1162,7 +1161,7 @@ namespace sce
 		bool isWayPointEmpty(void);
 
 		//get waypoint by index
-		WayPoint& getWayPoint(const unsigned int&);
+		WayPoint& getWayPoint(const size_t&);
 
 		//get all waypoints
 		std::vector<WayPoint>& getAllWayPoints(void);
@@ -1171,13 +1170,13 @@ namespace sce
 		void addWayPoint(const WayPoint&);
 
 		//insert waypoint by position
-		bool insertWayPoint(const unsigned int&, const WayPoint&);
+		bool insertWayPoint(const size_t&, const WayPoint&);
 
 		//set/moditify waypoint by index
-		bool setWayPoint(const unsigned int&, const WayPoint&);
+		bool setWayPoint(const size_t&, const WayPoint&);
 
 		//detele waypoint by index
-		bool deleteWayPoint(const unsigned int&);
+		bool deleteWayPoint(const size_t&);
 
 		//set name
 		void setName(const std::string&);
@@ -1196,7 +1195,7 @@ namespace sce
 	{
 	public:
 		Location(void);
-		Location(const double&, const double&, const double&);
+		Location(const double& longitude, const double& latitude, const double& altitude);
 
 		//get latitude and longitude
 		const double& getAltitude(void) const;
@@ -1218,26 +1217,26 @@ namespace sce
 	{
 	public:
 		DwellSquence(void);
-		DwellSquence(const unsigned int&, const unsigned int&, const unsigned int&, const double&, const double&);
+		DwellSquence(const size_t&, const size_t&, const size_t&, const double&, const double&);
 
 		//get method;
-		const unsigned int& getIndex(void);
-		const unsigned int& getMinFreq(void);
-		const unsigned int& getMaxFreq(void);
+		const size_t& getIndex(void);
+		const size_t& getMinFreq(void);
+		const size_t& getMaxFreq(void);
 		const double& getStartTime(void);
 		const double& getEndTime(void);
 
 		//set method;
-		void setIndex(const unsigned int&);
-		void setMinFreq(const unsigned int&);
-		void setMaxFreq(const unsigned int&);
+		void setIndex(const size_t&);
+		void setMinFreq(const size_t&);
+		void setMaxFreq(const size_t&);
 		void setStartTime(const double&);
 		void setEndTime(const double&);
 
 	private:
-		unsigned int m_index;
-		unsigned int m_minFreq;
-		unsigned int m_maxFreq;
+		size_t m_index;
+		size_t m_minFreq;
+		size_t m_maxFreq;
 		double m_startTime;
 		double m_endTime;
 	};
@@ -1259,7 +1258,7 @@ namespace sce
 		bool isDwellSquenceEmpty(void);
 
 		//get DwellSquence by index
-		DwellSquence& getDwellSquence(const unsigned int& index);
+		DwellSquence& getDwellSquence(const size_t& index);
 
 		//get all DwellSquences
 		std::vector<DwellSquence>& getAllDwellSquences(void);
@@ -1268,13 +1267,13 @@ namespace sce
 		void addDwellSquence(const DwellSquence&);
 
 		//insert DwellSquence
-		bool insertDwellSquence(const unsigned int& pos, const DwellSquence&);
+		bool insertDwellSquence(const size_t& pos, const DwellSquence&);
 
 		//set/moditify DwellSquence
-		bool setDwellSquence(const unsigned int& pos, const DwellSquence&);
+		bool setDwellSquence(const size_t& pos, const DwellSquence&);
 
 		//delete DwellSquence
-		bool deleteDwellSquence(const unsigned int& index);
+		bool deleteDwellSquence(const size_t& index);
 
 		//set/moditify all DwellSquence
 		void setDwellSquences(const std::vector<DwellSquence>&);
@@ -1309,19 +1308,19 @@ namespace sce
 		bool isSectionEmpty(void);
 
 		//按索引获取EsmStrategySection
-		const std::shared_ptr<EsmStrategySection> getPtr2Section(unsigned int& pos) const;
+		const std::shared_ptr<EsmStrategySection> getPtr2Section(size_t& pos) const;
 
 		//add EsmStrategySection
 		void addSection(const std::shared_ptr<EsmStrategySection>);
 
 		//按照索引设置/修改EsmStrategySection
-		bool setPtr2Section(unsigned int& pos, std::shared_ptr<EsmStrategySection>);
+		bool setPtr2Section(size_t& pos, std::shared_ptr<EsmStrategySection>);
 
 		//insert EsmStrategySection
-		bool insertSection(unsigned int& pos, std::shared_ptr<EsmStrategySection>);
+		bool insertSection(size_t& pos, std::shared_ptr<EsmStrategySection>);
 
 		//delete EsmStrategySection
-		bool deleteSection(unsigned int& pos);
+		bool deleteSection(size_t& pos);
 
 		//set name
 		void setName(const std::string& name);
@@ -1383,19 +1382,19 @@ namespace sce
 		bool isSectionEmpty(void);
 
 		//按索引获取EsmStrategySection
-		const std::shared_ptr<EcmStrategySection> getPtr2Section(unsigned int& pos) const;
+		const std::shared_ptr<EcmStrategySection> getPtr2Section(size_t& pos) const;
 
 		//add EsmStrategySection
 		void addSection(const std::shared_ptr<EcmStrategySection>);
 
 		//按照索引设置/修改EsmStrategySection
-		bool setPtr2Section(unsigned int& pos, std::shared_ptr<EcmStrategySection>);
+		bool setPtr2Section(size_t& pos, std::shared_ptr<EcmStrategySection>);
 
 		//insert EsmStrategySection
-		bool insertSection(unsigned int& pos, std::shared_ptr<EcmStrategySection>);
+		bool insertSection(size_t& pos, std::shared_ptr<EcmStrategySection>);
 
 		//delete EsmStrategySection
-		bool deleteSection(unsigned int& pos);
+		bool deleteSection(size_t& pos);
 
 		//set name
 		void setName(const std::string& name);

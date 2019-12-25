@@ -101,6 +101,7 @@ namespace de
 		 */
 		virtual void start(size_t index)
 		{
+			std::cout << "Processor index:" << index << "start running!" << std::endl;
 		}
 
 		/**
@@ -113,6 +114,7 @@ namespace de
 		 */
 		virtual void start_of(size_t index, individual_ptr individual)
 		{
+			std::cout << "Processor index:" << index<<", Past best individual cost:"<<individual->cost()<<std::endl;
 		}
 
 		/**
@@ -125,6 +127,7 @@ namespace de
 		 */
 		virtual void end_of(size_t index, individual_ptr individual)
 		{
+			std::cout << "Processor index:" << index << ", Current best individual cost:" << individual->cost() << std::endl;
 		}
 
 		/**
@@ -138,6 +141,7 @@ namespace de
 		 */
 		virtual void end(size_t index)
 		{
+			std::cout << "Processor index:" << index << "exit!"<< std::endl;
 		}
 
 		/**
@@ -150,6 +154,7 @@ namespace de
 		 */
 		virtual void error(size_t index, const std::string& message)
 		{
+			std::cout << "Processor index:" << index << "; Error:" << message << std::endl;
 		}
 	};
 

@@ -583,17 +583,17 @@ void RoutePlannGui::on_open()
 	QDomElement docelem = dom.documentElement();
 	listDom(docelem);
 
-	routes = {};
-	esmstrategys = {};
-	ecmstrategys = {};
-	PSRs = {};
-	PERs = {};
-	PWRs = {};
-	OPEsmRs = {};
-	EsmESRs = {};
-	OPEcmRs = {};
-	EcmESRs = {};
-	OPRRs = {};
+	std::vector<std::shared_ptr<sce::Route>>().swap(routes);
+	std::vector<std::shared_ptr<sce::EsmStrategy>>().swap(esmstrategys);
+	std::vector<std::shared_ptr<sce::EcmStrategy>>().swap(ecmstrategys);
+	std::vector<sce::PlatformSiteRelation>().swap(PSRs);
+	std::vector<sce::PlatformEmitterRelation>().swap(PERs);
+	std::vector<sce::PlatformWeaponRelation>().swap(PWRs);
+	std::vector<sce::OwnPlatformEsmRelation>().swap(OPEsmRs);
+	std::vector<sce::EsmEsmStrategyRelation>().swap(EsmESRs);
+	std::vector<sce::OwnPlatformEcmRelation>().swap(OPEcmRs);
+	std::vector<sce::EcmEcmStrategyRelation>().swap(EcmESRs);
+	std::vector<sce::OwnPlatformRouteRelation>().swap(OPRRs);
 }
 
 void RoutePlannGui::listDom(QDomElement &docelem)
@@ -610,8 +610,8 @@ void RoutePlannGui::listDom(QDomElement &docelem)
 			QDomElement element = node.toElement();//Converts a QDomNode into a QDomElement
 			if (!element.isNull())
 			{
-				qDebug() << "节点名称:" << element.tagName() << endl;
-				qDebug() << "节点数据:" << element.text() << endl;
+				//qDebug() << "节点名称:" << element.tagName() << endl;
+				//qDebug() << "节点数据:" << element.text() << endl;
 				QString t = element.tagName();
 				QString t1 = element.text();
 				ParentNode = &element.parentNode().toElement();

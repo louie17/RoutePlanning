@@ -283,7 +283,7 @@ void Radar_mode_page::add() {
 }
 void Radar_mode_page::del()		//删除列表数据
 {
-	unsigned int num = ui.tableWidget->currentRow();
+	size_t num = ui.tableWidget->currentRow();
 	int ree = QMessageBox::information(this, "Tip", "Confirm deletion?", QStringLiteral("Yes"), QStringLiteral("No"));
 	if (ree != 0)
 	{

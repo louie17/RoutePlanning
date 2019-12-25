@@ -13,6 +13,7 @@
 #include "ui_algorithm_page.h"
 
 #include "DE_main.hpp"
+#include "de_types.hpp"
 
 algorithm_page::algorithm_page(QWidget *parent)
 	: QWidget(parent)
@@ -113,10 +114,33 @@ void algorithm_page::run_algorithm()
 			}
 			else {
 				qDebug() << "choice is DE";
-				if (de::De_alg(swRelation, scenario.getAllVertex(), scenario.getAllOwnPlatform()[op_index]->getMission().getStartPoint(), scenario.getAllOwnPlatform()[op_index]->getMission().getEndPoint(),std::make_shared<sce::Route>(sce::Route(ui.lineEdit_18->text().toStdString())), Population_Number, Initial_Node_Number, Evolution_Number, Weight, Cross_Probability))
-					qDebug() << "DE complete!";
-			}
+				size_t target_size=scenario.getAllOwnPlatform()[op_index]->getMission().getAllTargetPoints().size();
+				assert(target_size);
+				std::vector<sce::Point> mission_section{ scenario.getAllOwnPlatform()[op_index]->getMission().getStartPoint() ,scenario.getAllOwnPlatform()[op_index]->getMission().getEndPoint() };
+				if (target_size > 0)
+				{
+					for (size_t i = 0; i < target_size; ++i)
+					{
+						mission_section.insert(mission_section.end()-2, scenario.getAllOwnPlatform()[op_index]->getMission().getTargetPoint(i));
+					}
+				}
+				
+				sce::Route_ptr route{std::make_shared<sce::Route>(sce::Route(ui.lineEdit_18->text().toStdString(),sce::WayPoint(mission_section[0].getLongitude(),mission_section[0].getLatitude(),mission_section[0].getAltitude())))};
 
+				for (size_t i = 0; i < target_size; ++i)
+				{
+					de::NVectorPtr route_section(de::De_alg(swRelation, scenario.getAllVertex(), mission_section[i], mission_section[i+1], Population_Number, Initial_Node_Number, Evolution_Number, Weight, Cross_Probability));	
+
+					for (size_t iter = 1; iter < route_section->size(); ++iter)
+					{
+						de::Node node(route_section->at(iter));
+						route->addWayPoint(sce::WayPoint(iter, node.longitude(), node.latitude(), node.altitude()));
+					}
+				}
+								
+				qDebug() << "DE complete!";
+								
+			}
 		}
 		if (tab_index == 2) //choose PSO algorithm
 		{

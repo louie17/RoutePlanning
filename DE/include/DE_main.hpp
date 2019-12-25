@@ -34,7 +34,7 @@ namespace de
 	* @param mutationStrategy ±äÒì²ßÂÔ£»
 	* @param listener ÕìÌýÆ÷¡£
 	*/
-	int De_alg(sce::Site_WeaponRange_relation &swRelation,sce::Vertexs &vertexs,sce::Point &startPoint, sce::Point &endPoint,sce::Route_ptr route, const size_t &population_size, const size_t &initial_Node_Number, const size_t &evolution_Number, const double &weight, const double &cross_Probability)
+	NVectorPtr De_alg(sce::Site_WeaponRange_relation &swRelation,sce::Vertexs &vertexs,sce::Point &startPoint, sce::Point &endPoint, const size_t &population_size, const size_t &initial_Node_Number, const size_t &evolution_Number, const double &weight, const double &cross_Probability)
 	{
 		try
 		{
@@ -130,14 +130,7 @@ namespace de
 				<< ", y=" << (*best->vars())[1].latitude()
 				<< ", y=" << (*best->vars())[1].altitude() << std::endl;
 
-			route->setWayPoint(0,sce::WayPoint(best->vars()->at(0).longitude(), best->vars()->at(0).latitude(), best->vars()->at(0).altitude()));
-			for (size_t iter = 1;iter < best->vars()->size();++iter)
-			{
-				Node node(best->vars()->at(iter));
-				route->addWayPoint(sce::WayPoint(iter, node.longitude(), node.latitude(), node.altitude()));
-			} 
-
-			return 0;
+			return best->vars();
 		}
 		catch (const de::exception& e)
 		{

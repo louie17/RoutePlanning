@@ -266,7 +266,7 @@ namespace de
 
 			for (de::NVector::size_type j = 0; j < m_vars->size(); ++j)
 			{
-				os <<"["<< (*m_vars)[j].altitude() << ", "<< (*m_vars)[j].latitude()<<", "<< (*m_vars)[j].longitude()<< "] ";
+				os <<"["<< (*m_vars)[j].altitude() << ", "<< (*m_vars)[j].latitude()<<", "<< (*m_vars)[j].longitude()<< "],";
 			}
 
 			return os.str();
