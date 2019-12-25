@@ -526,7 +526,7 @@ namespace de
 			for (typename processor_vector::size_type n = 0; n < m_processors.size(); ++n)
 			{
 				processor_ptr p(m_processors[n]);
-				std::thread* th(new std::thread(std::ref(*p)));
+				std::thread* th(new std::thread(std::ref(*p)));//new thread()导致m_indiQuen减少一个
 				m_threads->add_thread(th);
 
 			}

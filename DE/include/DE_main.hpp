@@ -44,7 +44,7 @@ namespace de
 			* 首先创建一个默认constraints对象(double type, min -1.0e6, max 1.0e6)，
 			* 然后将目标函数中的各个参数设置为实数类型：0<=y<=100.
 			*/
-			constraints_ptr constraints(std::make_shared< constraints >(initial_Node_Number, 1.0e-6, 1.0e6));
+			constraints_ptr constraints(std::make_shared< constraints >(initial_Node_Number+2, 1.0e-6, 1.0e6));
 
 			//TODO: 找出飞行区域内的上下限
 			DVector v_Altitudes,v_Latitudes,v_Longitudes;
@@ -86,7 +86,7 @@ namespace de
 			* 用并行处理器的数量（4），目标函数和侦听器实例化处理器的集合。
 			*/
 			//processors< sphere_function >::processors_ptr _processors(std::make_shared< processors< sphere_function > >(4, std::ref(of), processor_listener));
-			processors< evaluation_route >::processors_ptr _processors(std::make_shared< processors< evaluation_route > >(1, std::ref(of), constraints, swRelation, processor_listener));
+			processors< evaluation_route >::processors_ptr _processors(std::make_shared< processors< evaluation_route > >(4, std::ref(of), constraints, swRelation, processor_listener));
 			/**
 			* 实例化一个简单的终止策略，它将在1000代之后停止优化过程。
 			*/

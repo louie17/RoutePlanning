@@ -250,7 +250,7 @@ public:
 	{
 		double tabu_cost(0.0);
 		//由于暂时没有地形信息，这里只进行与最低安全飞行高度进行比较
-		std::valarray<double> heights(0.0, args->size() - 1);
+		std::valarray<double> heights(0.0, args->size());
 		for (size_t i=0; i<args->size();i++)
 		{
 			heights[i]=(*args)[i].altitude();
@@ -267,12 +267,12 @@ public:
 	{
 		double route_cost(0.0);
 		std::vector<double> ermc(args->size()-1,0.0);
-		for (size_t i = 0; i < args->size() - 1; i++)
+		for (size_t i = 0; i < args->size() - 1; ++i)
 		{
-			ermc[i] = (*args->cend() - (*args)[i]).norm();
+			ermc[i] = (*(args->cend()-1) - (*args)[i]).norm();
 		}
 
-		for (size_t j = 0; j < ermc.size() - 1; j++)
+		for (size_t j = 0; j < ermc.size() - 1; ++j)
 		{
 			route_cost += ermc[j + 1] / ermc[j];
 		}
@@ -302,7 +302,7 @@ public:
 
 	virtual double operator()(de::NVectorPtr args,de::constraints_ptr constraints,const sce::Site_WeaponRange_relation swRelation)
 	{
-		double tabu_cost(0.0), std_variance_cost(0.0),mission_cost(0.0),survival_cost(0.0), length_cost(0.0), angle_cost(0.0),threat_cost(0.0);
+		//double tabu_cost(0.0), std_variance_cost(0.0),mission_cost(0.0),survival_cost(0.0), length_cost(0.0), angle_cost(0.0),threat_cost(0.0);
 
 		de::NVector diff_vector(args->size() - 1, args->at(0));
 		//DVector norms(args->size() - 1, 0);
@@ -316,20 +316,20 @@ public:
 		}
 
 		// 评估飞行高度和地形
-		tabu_cost = evaluation_route_tabu_cost(args,(*constraints)[2]);
+		double tabu_cost = evaluation_route_tabu_cost(args,(*constraints)[2]);
 		// 评估与任务点的距离
-		mission_cost = evaluation_route_mission_cost(args);
+		double mission_cost = evaluation_route_mission_cost(args);
 		//评估长度代价
-		length_cost = evaluation_length_cost(args, norms);
+		double length_cost = evaluation_length_cost(args, norms);
 		//评估角度代价
-		angle_cost = evalution_angle_cost(diff_vector,norms,constraints);
+		double angle_cost = evalution_angle_cost(diff_vector,norms,constraints);
 		//评估方差代价
-		std_variance_cost = evaluation_std_variance_cost(norms);
+		double std_variance_cost = evaluation_std_variance_cost(norms);
 		//评估威胁代价
-		threat_cost = evaluation_threat_cost(args, swRelation);
+		double threat_cost = evaluation_threat_cost(args, swRelation);
 
 		// 评估生存代价,这在生存率评估环节做
-		//survival_cost = evaluation_route_survival_cost(args);
+		//double survival_cost = evaluation_route_survival_cost(args);
 
 		// 适应度
 		double cost = 0.2*length_cost + 0.2*angle_cost + 0.1*mission_cost + 0.1*tabu_cost+ 0.2*std_variance_cost+0.2*threat_cost;

@@ -44,7 +44,7 @@ namespace de
 		 * @param varCount 每个个体的变量的数量
 		 */
 		individual(size_t varCount)
-			: m_vars(std::make_shared< de::NVector >(varCount))
+			: m_vars(std::make_shared< de::NVector >(varCount)),m_cost(0.0)
 		{
 		}
 
@@ -56,7 +56,7 @@ namespace de
 		 * @param vars 将被复制到内部变量vector容器中的变量vector容器对象。
 		 */
 		individual(const de::NVector& vars)
-			: m_vars(std::make_shared< de::NVector >(vars))
+			: m_vars(std::make_shared< de::NVector >(vars)), m_cost(0.0)
 		{
 		}
 
@@ -94,7 +94,7 @@ namespace de
 		{
 			assert(constraints);
 			assert(m_vars);
-			//assert(m_vars->size() == constraints->size());
+			assert(m_vars->size() == constraints->size());
 
 			m_vars->at(0) = startPoint;
 			for (de::NVector::size_type j = 1; j < m_vars->size()-1; ++j)
@@ -132,9 +132,9 @@ namespace de
 
 			for (de::NVector::size_type j = 0; j < m_vars->size(); ++j)
 			{
-				(*m_vars)[j].setAltitude(constraints->get_rand_value(0, (*m_vars)[j].altitude(), (*origin)[j].altitude()));
+				(*m_vars)[j].setAltitude(constraints->get_rand_value(2, (*m_vars)[j].altitude(), (*origin)[j].altitude()));
 				(*m_vars)[j].setLatitude(constraints->get_rand_value(1, (*m_vars)[j].latitude(), (*origin)[j].latitude()));
-				(*m_vars)[j].setLongitude(constraints->get_rand_value(2, (*m_vars)[j].longitude(), (*origin)[j].longitude()));
+				(*m_vars)[j].setLongitude(constraints->get_rand_value(0, (*m_vars)[j].longitude(), (*origin)[j].longitude()));
 			}
 		}
 
