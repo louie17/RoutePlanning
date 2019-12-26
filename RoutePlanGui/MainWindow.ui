@@ -23,9 +23,9 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>10</y>
-      <width>301</width>
+      <width>311</width>
       <height>211</height>
      </rect>
     </property>
@@ -88,7 +88,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -190,7 +190,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -227,9 +227,9 @@
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>480</x>
       <y>220</y>
-      <width>451</width>
+      <width>481</width>
       <height>251</height>
      </rect>
     </property>
@@ -241,7 +241,7 @@
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>431</width>
+       <width>481</width>
        <height>181</height>
       </rect>
      </property>
@@ -308,7 +308,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -345,9 +345,9 @@
    <widget class="QGroupBox" name="groupBox_7">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>220</y>
-      <width>481</width>
+      <width>461</width>
       <height>251</height>
      </rect>
     </property>
@@ -359,7 +359,7 @@
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>461</width>
+       <width>441</width>
        <height>181</height>
       </rect>
      </property>
@@ -418,7 +418,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -497,7 +497,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -593,7 +593,7 @@
       </property>
      </column>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>370</x>

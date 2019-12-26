@@ -316,8 +316,8 @@ namespace sce
 	public:
 
 		Vertex(void);
-		Vertex(const double &, const double &);
-		Vertex(const double &, const double &, const double &);
+		Vertex(const double &latitude, const double &longitude);
+		Vertex(const double &latitude, const double &longitude, const double &altitude);
 
 		//get latitude and longitude
 		const double& getLatitude(void) const;
@@ -351,7 +351,7 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Platform(void);
-		Platform(const std::string &, const PlatformType &);
+		Platform(const std::string &name, const PlatformType &type);
 
 		//get PlatformName and PlatformType
 		const std::string& getPlatformName(void) const;
@@ -370,11 +370,7 @@ namespace sce
 	public:
 		Rf_values(void);
 
-		Rf_values(const size_t &,
-			const size_t &,
-			const size_t &,
-			const size_t &,
-			const size_t &);
+		Rf_values(const size_t &pOrder, const size_t &numOfPulses, const size_t &min, const size_t &max, const size_t &sweepTime);
 
 		//get method
 		const size_t& getPhaseOrder(void) const;
@@ -411,11 +407,11 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Rf(void);
-		Rf(const size_t &, const size_t &);
-		Rf(const size_t &, const size_t &, const RfType &);
+		Rf(const size_t &rfmin, const size_t &rfmax);
+		Rf(const size_t &rfmin, const size_t &rfmax, const RfType &type);
 
-		Rf(const size_t &, const size_t &, const Rf_values &, const RfType &);
-		Rf(const size_t &, const size_t &, const std::vector<Rf_values> &, const RfType &);
+		Rf(const size_t &rfmin, const size_t &rfmax, const Rf_values &rfValues, const RfType &type);
+		Rf(const size_t &rfmin, const size_t &rfmax, const std::vector<Rf_values> &rfValues, const RfType &type);
 
 		//Rf(const Rf& rf);
 		//Rf& operator=(const Rf& rf);
@@ -506,11 +502,11 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Pw(void);
-		Pw(const size_t &, const size_t &);
-		Pw(const size_t &, const size_t &, const PwType &);
+		Pw(const size_t &pwmin, const size_t &pwmax);
+		Pw(const size_t &pwmin, const size_t &pwmax, const PwType &type);
 
-		Pw(const size_t &, const size_t &, const Pw_values &, const PwType &);
-		Pw(const size_t &, const size_t &, const std::vector<Pw_values > &, const PwType &);
+		Pw(const size_t &pwmin, const size_t &pwmax, const Pw_values &pwValues, const PwType &type);
+		Pw(const size_t &pwmin, const size_t &pwmax, const std::vector<Pw_values > &pwValues, const PwType &type);
 
 		//get mehtod
 		const size_t& getPwMin(void) const;
@@ -561,12 +557,7 @@ namespace sce
 	{
 	public:
 		Pri_values(void);
-
-		Pri_values(const size_t &,
-			const size_t &,
-			const size_t &,
-			const size_t &,
-			const size_t &);
+		Pri_values(const size_t &pOrder, const size_t &numOfPulses, const size_t &min, const size_t &max, const size_t &sweepTime);
 
 		//get method
 		const size_t& getPhaseOrder(void) const;
@@ -604,10 +595,10 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Pri(void);
-		Pri(const size_t &, const size_t &);
-		Pri(const size_t &, const size_t &, const PriType &);
-		Pri(const size_t &, const size_t &, const Pri_values &, const PriType &);
-		Pri(const size_t &, const size_t &, const std::vector<Pri_values> &, const PriType &);
+		Pri(const size_t &primin, const size_t &primax);
+		Pri(const size_t &primin, const size_t &primax, const PriType &type);
+		Pri(const size_t &primin, const size_t &primax, const Pri_values &priValues, const PriType &type);
+		Pri(const size_t &primin, const size_t &primax, const std::vector<Pri_values> &priValues, const PriType &type);
 
 		//get mehtod
 		const size_t& getPriMin(void) const;
@@ -664,7 +655,7 @@ namespace sce
 	public:
 
 		Scan(void);
-		Scan(const size_t &, const size_t &, const ScanType &);
+		Scan(const size_t &max, const size_t &min, const ScanType &type);
 
 		//get mehtod
 		const size_t& getScanMin(void) const;
@@ -687,7 +678,7 @@ namespace sce
 	public:
 
 		Erp(void);
-		Erp(const size_t &, const size_t &);
+		Erp(const size_t &min, const size_t &max);
 
 		//get mehtod
 		const size_t& getErpMin(void) const;
@@ -716,13 +707,7 @@ namespace sce
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Radar_Mode(void);
 
-		Radar_Mode(const std::string &,
-			const ModeType &,
-			const Rf &,
-			const Pw &,
-			const Pri &,
-			const Scan &,
-			const Erp &);
+		Radar_Mode(const std::string &modeCode, const ModeType &modeType, const Rf &rf, const Pw &pw, const Pri &pri, const Scan &scan, const Erp &erp);
 
 		//get mehtod
 		const std::string& getModeCode(void) const;
@@ -759,9 +744,9 @@ namespace sce
 		//由于充满不确定性，调用默认构造可能会引起一些未知错误；
 		//此构造函数用于编译器隐含调用，使用者请不要使用默认构造函数
 		Emitter(void);
-		Emitter(const std::string & name);
-		Emitter(const std::string &, std::shared_ptr<Radar_Mode>);
-		Emitter(const std::string &, std::vector<std::shared_ptr<Radar_Mode>> &);
+		Emitter(const std::string &name);
+		Emitter(const std::string &name, std::shared_ptr<Radar_Mode> ptrRadarMode);
+		Emitter(const std::string &name, std::vector<std::shared_ptr<Radar_Mode>> &ptrRadarModes);
 
 		//get method
 		const std::string& getName(void) const;
@@ -802,7 +787,7 @@ namespace sce
 	public:
 		//不用使用标准容器类直接装带有string类型成员数据的类对象，而应该是该对象的指针
 		Weapon(void);
-		Weapon(const std::string&, const size_t&, const size_t&);
+		Weapon(const std::string& name, const size_t& cepr, const size_t& weaponAreaCoverage);
 
 		const std::string& getName(void) const;
 		const size_t& getCEPR(void) const;
@@ -824,7 +809,7 @@ namespace sce
 	public:
 		//不用使用标准容器类直接装带有string类型成员数据的类对象，而应该是该对象的指针
 		Site(void);
-		Site(const std::string&, const double&, const double&, const double&);
+		Site(const std::string &name, const double &altitude, const double &latitude, const double &longitude);
 
 		//get latitude and longitude
 		const std::string& getName(void) const;
@@ -859,8 +844,8 @@ namespace sce
 	{
 	public:
 		Point(void);
-		Point(const double&, const double&, const double&);
-		Point(const double&, const double&, const double&, const double&, const double&);
+		Point(const double &altitude, const double &latitude, const double &longitude);
+		Point(const double &altitude, const double &latitude, const double &longitude, const double &tmin, const double &tmax);
 
 		//get latitude and longitude
 		const double& getAltitude(void) const;
@@ -899,12 +884,12 @@ namespace sce
 		Mission(void);
 
 		//Mission Type:Strike
-		Mission(const MissionType&, const Point&, const Point&, const std::vector<Point>&);
-		Mission(const MissionType&, const Point&, const Point&, const Point&);
+		Mission(const MissionType &missionType, const Point &startPoint, const Point &endPoint, const std::vector<Point>&targetPoint);
+		Mission(const MissionType &missionType, const Point &startPoint, const Point &endPoint, const Point&targetPoint);
 
 		//Mission Type:Support
 		//此构造函数应该在MissionType为Support时才用此构造函数，但一如前面所说，不保证安全性
-		Mission(const MissionType&, const Point&, const Point&);
+		Mission(const MissionType &missionType, const Point &startPoint, const Point &endPoint);
 
 		const MissionType& getMissionType(void) const;
 		Point& getStartPoint(void);
@@ -949,8 +934,24 @@ namespace sce
 	{
 	public:
 		OwnPlatform(void);
-		OwnPlatform(const std::string&, const OwnPlatformType&, const double&, const double&, const double&, const double&, const double&, const double&);
-		OwnPlatform(const std::string&, const OwnPlatformType&, const double&, const double&, const double&, const double&, const double&, const double&, const Mission&);
+		OwnPlatform(const std::string &name,
+			const OwnPlatformType &ownPlatformType,
+			const double &maxAcceleration,
+			const double &maxDeceleration,
+			const double &maxClimbRate,
+			const double &maxDiveRate,
+			const double &maxSpeed,
+			const double &maxTurnRadius);
+
+		OwnPlatform(const std::string &name,
+			const OwnPlatformType &ownPlatformType,
+			const double &maxAcceleration,
+			const double &maxDeceleration,
+			const double &maxClimbRate,
+			const double &maxDiveRate,
+			const double &maxSpeed,
+			const double &maxTurnRadius,
+			const Mission &mission);
 
 		const std::string& getName(void) const;
 		const OwnPlatformType& getType(void) const;
@@ -990,8 +991,26 @@ namespace sce
 	{
 	public:
 		Esm(void);
-		Esm(const std::string&, const double&, const size_t&, const size_t&, const size_t&, const size_t&, const size_t&);
-		Esm(const std::string&, const double&, const size_t&, const size_t&, const size_t&, const size_t&, const size_t&, const double&, const size_t&, const double&, const double&, const double&);
+		Esm(const std::string &name,
+			const double &dwellFreqResolution,
+			const size_t &tuningStep,
+			const size_t &rfCovMin,
+			const size_t &rfCovMax,
+			const size_t &numPulsesAcquisition,
+			const size_t &numPulsesAlarm);
+
+		Esm(const std::string &name,
+			const double &dwellFreqResolution,
+			const size_t &tuningStep,
+			const size_t &rfCovMin,
+			const size_t &rfCovMax,
+			const size_t &numPulsesAcquisition,
+			const size_t &numPulsesAlarm,
+			const double &esmMinDwellTime,
+			const size_t &nEmitter,
+			const double &taoScan,
+			const double &Pmin,
+			const double &Aeff);
 
 		const std::string& getName(void);
 		const double& getDwellFreqResolution(void);
@@ -1217,7 +1236,7 @@ namespace sce
 	{
 	public:
 		DwellSquence(void);
-		DwellSquence(const size_t&, const size_t&, const size_t&, const double&, const double&);
+		DwellSquence(const size_t &index, const size_t &minFreq, const size_t &maxFreq, const double &startTime, const double &endTime);
 
 		//get method;
 		const size_t& getIndex(void);
@@ -1245,9 +1264,9 @@ namespace sce
 	{
 	public:
 		EsmStrategySection(void);
-		EsmStrategySection(const double&, const double&, const Location&, const Location&);
-		EsmStrategySection(const double&, const double&, const Location&, const Location&, const DwellSquence&);
-		EsmStrategySection(const double&, const double&, const Location&, const Location&, const std::vector<DwellSquence>&);
+		EsmStrategySection(const double &startTime, const double &endTime, const Location &startLocation, const Location &endLocation);
+		EsmStrategySection(const double &startTime,	const double &endTime, const Location &startLocation, const Location &endLocation, const DwellSquence &dwellsquence);
+		EsmStrategySection(const double &startTime, const double &endTime, const Location &startLocation, const Location &endLocation, const std::vector<DwellSquence> &dwellsquences);
 
 		//get method
 		const double& getStartTime(void);
@@ -1295,9 +1314,9 @@ namespace sce
 	{
 	public:
 		EsmStrategy(void);
-		EsmStrategy(const std::string&);
-		EsmStrategy(const std::string&, const std::shared_ptr<EsmStrategySection>&);
-		EsmStrategy(const std::string&, const std::vector<std::shared_ptr<EsmStrategySection>>&);
+		EsmStrategy(const std::string &name);
+		EsmStrategy(const std::string &name, const std::shared_ptr<EsmStrategySection>&);
+		EsmStrategy(const std::string &name, const std::vector<std::shared_ptr<EsmStrategySection>>&);
 
 		//get method
 		const std::string& getName(void) const;
@@ -1339,8 +1358,8 @@ namespace sce
 	{
 	public:
 		EcmStrategySection(void);
-		EcmStrategySection(const double&, const double&, const Location&, const Location&);
-		EcmStrategySection(const double&, const double&, const Location&, const Location&, const Tech&);
+		EcmStrategySection(const double &startTime, const double &endTime, const Location &startLocation, const Location &endLocation);
+		EcmStrategySection(const double &startTime, const double &endTime, const Location &startLocation, const Location &endLocation, const Tech &tech);
 
 		//get prop
 		const double& getStartTime(void);
@@ -1369,8 +1388,8 @@ namespace sce
 	public:
 		EcmStrategy(void);
 		EcmStrategy(const std::string&);
-		EcmStrategy(const std::string&, const std::shared_ptr<EcmStrategySection>&);
-		EcmStrategy(const std::string&, const std::vector<std::shared_ptr<EcmStrategySection>>&);
+		EcmStrategy(const std::string &name, const std::shared_ptr<EcmStrategySection>&ptrEcmStrategySection);
+		EcmStrategy(const std::string &name, const std::vector<std::shared_ptr<EcmStrategySection>>& ptrEcmStrategySections);
 
 		//get method
 		const std::string& getName(void) const;

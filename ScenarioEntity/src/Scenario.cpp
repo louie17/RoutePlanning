@@ -94,24 +94,12 @@ namespace sce
 
 	/***************************Rf_values***********************************/
 	Rf_values::Rf_values(void)
-		: m_phaseOrder(1)
-		, m_numberOfPulses(0)
-		, m_min(90)
-		, m_max(90)
-		, m_sweepTime(0)
+		: m_phaseOrder(1), m_numberOfPulses(0), m_min(90), m_max(90), m_sweepTime(0)
 	{
 	}
 
-	Rf_values::Rf_values(const size_t &pOrder,
-		const size_t &numOfPulses,
-		const size_t &min,
-		const size_t &max,
-		const size_t &sweepTime)
-		: m_phaseOrder(pOrder)
-		, m_numberOfPulses(numOfPulses)
-		, m_min(min)
-		, m_max(max)
-		, m_sweepTime(sweepTime)
+	Rf_values::Rf_values(const size_t &pOrder, const size_t &numOfPulses, const size_t &min, const size_t &max,	const size_t &sweepTime)
+		: m_phaseOrder(pOrder), m_numberOfPulses(numOfPulses), m_min(min), m_max(max), m_sweepTime(sweepTime)
 	{
 	}
 
@@ -161,52 +149,28 @@ namespace sce
 	/************************Rf**********************************/
 	//由于默认构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
 	Rf::Rf(void)
-		: m_min(9000)
-		, m_max(10000)
-		, m_type(RfType::BURST)
-		, m_values({ Rf_values() })
+		: m_min(9000), m_max(10000), m_type(RfType::BURST)
 	{
 	}
 
-	Rf::Rf(const size_t &rfmin,
-		const size_t &rfmax)
-		: m_min(rfmin)
-		, m_max(rfmax)
-		, m_type(RfType::BURST)
-		, m_values({ Rf_values() })
+	Rf::Rf(const size_t &rfmin, const size_t &rfmax)
+		: m_min(rfmin), m_max(rfmax), m_type(RfType::BURST)
 	{
 	}
 
 	//由于默认构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
-	Rf::Rf(const size_t &rfmin,
-		const size_t &rfmax,
-		const RfType &rftype)
-		: m_min(rfmin)
-		, m_max(rfmax)
-		, m_type(rftype)
-		, m_values({ Rf_values() })
+	Rf::Rf(const size_t &rfmin,	const size_t &rfmax, const RfType &rftype)
+		: m_min(rfmin), m_max(rfmax), m_type(rftype)
 	{
 	}
 
-	Rf::Rf(const size_t &rfmin,
-		const size_t &rfmax,
-		const Rf_values & rfvalues,
-		const RfType &rftype)
-		: m_min(rfmin)
-		, m_max(rfmax)
-		, m_type(rftype)
-		, m_values({ rfvalues })/*function({ arg1, arg2,...})复制列表初始化，以花括号初始化器列表为实参，以列表初始化对函数形参初始化*/
+	Rf::Rf(const size_t &rfmin,	const size_t &rfmax, const Rf_values & rfvalues, const RfType &rftype)
+		: m_min(rfmin), m_max(rfmax), m_type(rftype), m_values({ rfvalues })/*function({ arg1, arg2,...})复制列表初始化，以花括号初始化器列表为实参，以列表初始化对函数形参初始化*/
 	{
 	}
 
-	Rf::Rf(const size_t &rfmin,
-		const size_t &rfmax,
-		const std::vector<Rf_values>& rfvalues,
-		const RfType &rftype)
-		: m_min(rfmin)
-		, m_max(rfmax)
-		, m_type(rftype)
-		, m_values(rfvalues)
+	Rf::Rf(const size_t &rfmin,	const size_t &rfmax, const std::vector<Rf_values>& rfvalues, const RfType &rftype)
+		: m_min(rfmin), m_max(rfmax), m_type(rftype), m_values(rfvalues)
 	{
 	}
 
@@ -323,24 +287,12 @@ namespace sce
 
 	/**************************Pw_Values*************************************/
 	Pw_values::Pw_values(void)
-		: m_phaseOrder(0)
-		, m_numberOfPulses(0)
-		, m_min(20)
-		, m_max(20)
-		, m_sweepTime(0)
+		: m_phaseOrder(0), m_numberOfPulses(0), m_min(20), m_max(20), m_sweepTime(0)
 	{
 	}
 
-	Pw_values::Pw_values(const size_t &pOrder,
-		const size_t &numOfPulses,
-		const size_t &min,
-		const size_t &max,
-		const size_t &sweepTime)
-		: m_phaseOrder(pOrder)
-		, m_numberOfPulses(numOfPulses)
-		, m_min(min)
-		, m_max(max)
-		, m_sweepTime(sweepTime)
+	Pw_values::Pw_values(const size_t &pOrder, const size_t &numOfPulses, const size_t &min, const size_t &max, const size_t &sweepTime)
+		: m_phaseOrder(pOrder), m_numberOfPulses(numOfPulses), m_min(min), m_max(max), m_sweepTime(sweepTime)
 	{
 	}
 
@@ -392,51 +344,27 @@ namespace sce
 	/***************************PW************************************/
 	//由于默认构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
 	Pw::Pw(void)
-		:m_min(20)
-		, m_max(20)
-		, m_type(PwType::FIX)
-		, m_values({ Pw_values() })
+		:m_min(20), m_max(20), m_type(PwType::FIX)
 	{
 	}
 
-	Pw::Pw(const size_t &pwmin,
-		const size_t &pwmax)
-		:m_min(pwmin)
-		,m_max(pwmax)
-		,m_type(PwType::FIX)
-		,m_values({ Pw_values() })
+	Pw::Pw(const size_t &pwmin, const size_t &pwmax)
+		:m_min(pwmin),m_max(pwmax),m_type(PwType::FIX)
 	{
 	}
 	//由于默认构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
-	Pw::Pw(const size_t &pwmin,
-		const size_t &pwmax,
-		const PwType &pwtype)
-		:m_min(pwmin)
-		,m_max(pwmax)
-		,m_type(pwtype)
-		,m_values({ Pw_values() })
+	Pw::Pw(const size_t &pwmin,	const size_t &pwmax, const PwType &pwtype)
+		:m_min(pwmin), m_max(pwmax), m_type(pwtype)
 	{
 	}
 
-	Pw::Pw(const size_t &pwmin,
-		const size_t &pwmax,
-		const Pw_values &pwvalues,
-		const PwType &pwtype)
-		:m_min(pwmin)
-		, m_max(pwmax)
-		, m_type(pwtype)
-		, m_values({ pwvalues })
+	Pw::Pw(const size_t &pwmin, const size_t &pwmax, const Pw_values &pwvalues,	const PwType &pwtype)
+		:m_min(pwmin), m_max(pwmax), m_type(pwtype), m_values({ pwvalues })
 	{
 	}
 
-	Pw::Pw(const size_t &pwmin,
-		const size_t &pwmax,
-		const std::vector<Pw_values>&pwvalues,
-		const PwType &pwtype)
-		:m_min(pwmin)
-		, m_max(pwmax)
-		, m_type(pwtype)
-		, m_values(pwvalues)
+	Pw::Pw(const size_t &pwmin,	const size_t &pwmax, const std::vector<Pw_values>&pwvalues,	const PwType &pwtype)
+		:m_min(pwmin), m_max(pwmax), m_type(pwtype), m_values(pwvalues)
 	{
 		/*for (auto &it : pwvalues)
 		{
@@ -561,24 +489,12 @@ namespace sce
 
 	/***************************Pri_Values************************************/
 	Pri_values::Pri_values(void)
-		: m_phaseOrder(1)
-		, m_numberOfPulses(0)
-		, m_min(90)
-		, m_max(90)
-		, m_sweepTime(0)
+		: m_phaseOrder(1) , m_numberOfPulses(0), m_min(90), m_max(90), m_sweepTime(0)
 	{
 	}
 
-	Pri_values::Pri_values(const size_t &pOrder,
-		const size_t &numOfPulses,
-		const size_t &min,
-		const size_t &max,
-		const size_t &sweepTime)
-		: m_phaseOrder(pOrder)
-		, m_numberOfPulses(numOfPulses)
-		, m_min(min)
-		, m_max(max)
-		, m_sweepTime(sweepTime)
+	Pri_values::Pri_values(const size_t &pOrder, const size_t &numOfPulses, const size_t &min, const size_t &max, const size_t &sweepTime)
+		: m_phaseOrder(pOrder), m_numberOfPulses(numOfPulses), m_min(min), m_max(max), m_sweepTime(sweepTime)
 	{
 	}
 
@@ -628,53 +544,29 @@ namespace sce
 
 	/***************************Pri************************************/
 	//由于默认构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
-	Pri::Pri(void)
-		: m_min(90)
-		, m_max(100)
-		, m_type(PriType::FIX)
-		, m_values({ Pri_values() })
+	Pri::Pri(void) 
+		:m_min(90), m_max(100), m_type(PriType::FIX)
 	{
 	}
 
-	Pri::Pri(const size_t &primin,
-		const size_t &primax)
-		: m_min(primin)
-		, m_max(primax)
-		, m_type(PriType::FIX)
-		, m_values({ Pri_values() })
+	Pri::Pri(const size_t &primin, const size_t &primax)
+		: m_min(primin), m_max(primax), m_type(PriType::FIX), m_values({ Pri_values() })
 	{
 	}
 
 	//由于构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
-	Pri::Pri(const size_t &primin,
-		const size_t &primax,
-		const PriType &pritype)
-		: m_min(primin)
-		, m_max(primax)
-		, m_type(pritype)
-		, m_values({ Pri_values() })
+	Pri::Pri(const size_t &primin, const size_t &primax, const PriType &pritype)
+		: m_min(primin), m_max(primax), m_type(pritype)
 	{
 	}
 
-	Pri::Pri(const size_t &primin,
-		const size_t &primax,
-		const Pri_values &privalues,
-		const PriType & pritype)
-		:m_min(primin)
-		, m_max(primax)
-		, m_type(pritype)
-		, m_values({ privalues })
+	Pri::Pri(const size_t &primin, const size_t &primax, const Pri_values &privalues, const PriType & pritype)
+		:m_min(primin), m_max(primax), m_type(pritype), m_values({ privalues })
 	{
 	}
 
-	Pri::Pri(const size_t &primin,
-		const size_t &primax,
-		const std::vector<Pri_values> &privalues,
-		const PriType & pritype)
-		:m_min(primin)
-		, m_max(primax)
-		, m_type(pritype)
-		, m_values(privalues)
+	Pri::Pri(const size_t &primin, const size_t &primax, const std::vector<Pri_values> &privalues, const PriType & pritype)
+		:m_min(primin), m_max(primax), m_type(pritype), m_values(privalues)
 	{
 	}
 
@@ -791,18 +683,12 @@ namespace sce
 
 	/**************************Scan*************************************/
 	Scan::Scan(void)
-		: m_min(2)
-		, m_max(2)
-		, m_type(ScanType::SECTORIAL)
+		: m_min(2), m_max(2), m_type(ScanType::SECTORIAL)
 	{
 	}
 
-	Scan::Scan(const size_t &max,
-		const size_t &min,
-		const ScanType &type)
-		: m_min(min)
-		, m_max(max)
-		, m_type(type)
+	Scan::Scan(const size_t &max, const size_t &min, const ScanType &type)
+		: m_min(min), m_max(max), m_type(type)
 	{
 	}
 
@@ -842,15 +728,12 @@ namespace sce
 
 	/**************************Erp*************************************/
 	Erp::Erp(void)
-		:m_min(50000)
-		, m_max(50000)
+		:m_min(50000), m_max(50000)
 	{
 	}
 
-	Erp::Erp(const size_t &min,
-		const size_t &max)
-		: m_min(min),
-		m_max(max)
+	Erp::Erp(const size_t &min,	const size_t &max)
+		:m_min(min), m_max(max)
 	{
 	}
 
@@ -877,31 +760,12 @@ namespace sce
 	/**************************Radar_Mode**********************************/
 	//由于默认构造函数尚未进行Values值初始化，所以调用默认构造后应尽快添加Values值
 	Radar_Mode::Radar_Mode(void)
-		: m_modeCode("001")
-		, m_modeType(ModeType::PULSE)
-		, m_rf(Rf())
-		, m_pw(Pw())
-		, m_pri(Pri())
-		, m_scan(Scan())
-		, m_erp(Erp())
+		: m_modeCode("001"), m_modeType(ModeType::PULSE)
 	{
 	}
 
-	Radar_Mode::Radar_Mode(const std::string &modeCode,
-		const ModeType &modeType,
-		const Rf &rf,
-		const Pw &pw,
-		const Pri &pri,
-		const Scan &scan,
-		const Erp &erp)
-		: m_modeCode(modeCode)
-		, m_modeType(modeType)
-		, m_rf(rf)
-		, m_pw(pw)
-		, m_pri(pri)
-		, m_scan(scan)
-		, m_erp(erp)
-
+	Radar_Mode::Radar_Mode(const std::string &modeCode,	const ModeType &modeType, const Rf &rf, const Pw &pw, const Pri &pri, const Scan &scan, const Erp &erp)
+		: m_modeCode(modeCode), m_modeType(modeType), m_rf(rf), m_pw(pw), m_pri(pri), m_scan(scan), m_erp(erp)
 	{
 	}
 
@@ -983,28 +847,22 @@ namespace sce
 	/***************************Emitter*********************************/
 	//由于默认构造函数尚未进行RadarMode值初始化，所以调用默认构造后应尽快完成RadarMode值初始化操作
 	Emitter::Emitter(void)
-		: m_name("Emitter1")
-		, m_ptrRadarMode({ std::make_shared<Radar_Mode>(Radar_Mode()) })
+		:m_name("Emitter1")
 	{
 	}
 
 	Emitter::Emitter(const std::string & name)
-		: m_name(name)
-		, m_ptrRadarMode({ std::make_shared<Radar_Mode>(Radar_Mode())})
+		:m_name(name)
 	{
 	}
 
-	Emitter::Emitter(const std::string &name,
-		std::shared_ptr<Radar_Mode> ptrRadarMode)
-		: m_name(name)
-		, m_ptrRadarMode({ ptrRadarMode })
+	Emitter::Emitter(const std::string &name, std::shared_ptr<Radar_Mode> ptrRadarMode)
+		:m_name(name), m_ptrRadarMode({ ptrRadarMode })
 	{
 	}
 
-	Emitter::Emitter(const std::string& name,
-		std::vector<std::shared_ptr<Radar_Mode>>& ptrRadarMode)
-		: m_name(name)
-		, m_ptrRadarMode(ptrRadarMode)
+	Emitter::Emitter(const std::string& name, std::vector<std::shared_ptr<Radar_Mode>>& ptrRadarModes)
+		:m_name(name), m_ptrRadarMode(ptrRadarModes)
 	{
 	}
 
@@ -1086,18 +944,12 @@ namespace sce
 
 	/*********************Weapon*********************************/
 	Weapon::Weapon(void)
-		:m_name("Weapon 1")
-		, m_cepr(50000)
-		, m_weaponAreaCoverage(100000)
+		:m_name("Weapon 1"), m_cepr(50000), m_weaponAreaCoverage(100000)
 	{
 	}
 
-	Weapon::Weapon(const std::string& name,
-		const size_t& cepr,
-		const size_t& weaponAreaCoverage)
-		:m_name(name)
-		, m_cepr(cepr)
-		, m_weaponAreaCoverage(weaponAreaCoverage)
+	Weapon::Weapon(const std::string& name,	const size_t& cepr,	const size_t& weaponAreaCoverage)
+		:m_name(name), m_cepr(cepr), m_weaponAreaCoverage(weaponAreaCoverage)
 	{
 	}
 
@@ -1136,21 +988,12 @@ namespace sce
 
 	/***********************Site*********************************/
 	Site::Site(void)
-		:m_name("Site1")
-		, m_altitude(100.0)
-		, m_latitude(0.0)
-		, m_longitude(0.0)
+		:m_name("Site1"), m_altitude(100.0), m_latitude(0.0), m_longitude(0.0)
 	{
 	}
 
-	Site::Site(const std::string &name,
-		const double &altitude,
-		const double &latitude,
-		const double &longitude)
-		:m_name(name)
-		, m_altitude(altitude)
-		, m_latitude(latitude)
-		, m_longitude(longitude)
+	Site::Site(const std::string &name, const double &altitude, const double &latitude, const double &longitude)
+		:m_name(name), m_altitude(altitude), m_latitude(latitude), m_longitude(longitude)
 	{
 	}
 
@@ -1200,35 +1043,17 @@ namespace sce
 
 	/*******************Point*******************************/
 	Point::Point(void)
-		:m_altitude(0.0)
-		, m_latitude(0.0)
-		, m_longitude(0.0)
-		, m_tmin(0.0)
-		, m_tmax(0.0)
+		:m_altitude(0.0),m_latitude(0.0),m_longitude(0.0),m_tmin(0.0),m_tmax(0.0)
 	{
 	}
 
-	Point::Point(const double &altitude,
-		const double &latitude,
-		const double &longitude)
-		:m_altitude(altitude)
-		, m_latitude(latitude)
-		, m_longitude(longitude)
-		, m_tmin(0.0)
-		, m_tmax(0.0)
+	Point::Point(const double &altitude, const double &latitude, const double &longitude)
+		:m_altitude(altitude), m_latitude(latitude), m_longitude(longitude), m_tmin(0.0), m_tmax(0.0)
 	{
 	}
 
-	Point::Point(const double &altitude,
-		const double &latitude,
-		const double &longitude,
-		const double &tmin,
-		const double &tmax)
-		:m_altitude(altitude)
-		, m_latitude(latitude)
-		, m_longitude(longitude)
-		, m_tmin(tmin)
-		, m_tmax(tmax)
+	Point::Point(const double &altitude, const double &latitude, const double &longitude, const double &tmin, const double &tmax)
+		:m_altitude(altitude), m_latitude(latitude), m_longitude(longitude), m_tmin(tmin), m_tmax(tmax)
 	{
 	}
 
@@ -1289,42 +1114,22 @@ namespace sce
 
 	/*******************Mission********************************/
 	Mission::Mission(void)
-		:m_type(MissionType::STRIKE)
-		, m_startPoint(Point())
-		, m_endPoint(Point())
-		, m_targetPoints({ Point() })
 	{
 	}
 
-	Mission::Mission(const MissionType &missionType,
-		const Point &startPoint,
-		const Point &endPoint,
-		const std::vector<Point>&targetPoint)
-		:m_type(missionType)
-		, m_startPoint(startPoint)
-		, m_endPoint(endPoint)
-		, m_targetPoints(targetPoint)
+	Mission::Mission(const MissionType &missionType, const Point &startPoint, const Point &endPoint, const std::vector<Point>&targetPoint)
+		:m_type(missionType), m_startPoint(startPoint), m_endPoint(endPoint), m_targetPoints(targetPoint)
 	{
 	}
 
-	Mission::Mission(const MissionType &missionType,
-		const Point &startPoint,
-		const Point &endPoint,
-		const Point &targetPoint)
-		:m_type(missionType)
-		, m_startPoint(startPoint)
-		, m_endPoint(endPoint)
-		, m_targetPoints({ targetPoint })
+	Mission::Mission(const MissionType &missionType, const Point &startPoint, const Point &endPoint, const Point &targetPoint)
+		:m_type(missionType), m_startPoint(startPoint), m_endPoint(endPoint), m_targetPoints({ targetPoint })
 	{
 	}
 
 	//此构造函数应该在MissionType为Support时才用此构造函数，但一如前面所说，不保证安全性
-	Mission::Mission(const MissionType &missionType,
-		const Point &startPoint,
-		const Point &endPoint)
-		:m_type(missionType)
-		, m_startPoint(startPoint)
-		, m_endPoint(endPoint)
+	Mission::Mission(const MissionType &missionType, const Point &startPoint, const Point &endPoint)
+		:m_type(missionType), m_startPoint(startPoint), m_endPoint(endPoint)
 	{
 	}
 
@@ -1431,14 +1236,13 @@ namespace sce
 	/***********************OwnPlatform************************************/
 	OwnPlatform::OwnPlatform(void)
 		:m_name("OwnPlatform 1")
-		, m_type(OwnPlatformType::AIR)
-		, m_maxAcceleration(9.8)
-		, m_maxDeceleration(9.8)
-		, m_maxClimbRate(30.0)
-		, m_maxDiveRate(30.0)
-		, m_maxSpeed(340.0)
-		, m_maxTurnRadius(10000)
-		, m_mission(Mission())
+		,m_type(OwnPlatformType::AIR)
+		,m_maxAcceleration(9.8)
+		,m_maxDeceleration(9.8)
+		,m_maxClimbRate(30.0)
+		,m_maxDiveRate(30.0)
+		,m_maxSpeed(340.0)
+		,m_maxTurnRadius(10000)
 	{
 	}
 
@@ -1458,7 +1262,6 @@ namespace sce
 		,m_maxDiveRate(maxDiveRate)
 		,m_maxSpeed(maxSpeed)
 		,m_maxTurnRadius(maxTurnRadius)
-		,m_mission(Mission())
 	{
 	}
 
@@ -1585,17 +1388,17 @@ namespace sce
 	/****************************Esm***************************/
 	Esm::Esm(void)
 		:m_name("Esm1")
-		, m_dwellFreqResolution(100.0)
-		, m_tuningStep(20)
-		, m_rfCovMin(500)
-		, m_rfCovMax(12000)
-		, m_numPulsesAcquisition(200)
-		, m_numPulsesAlarm(100)
-		, m_esmMinDwellTime(0.01)
-		, m_nEmitter(2)
-		, m_taoScan(1.0)
-		, m_Pmin(1.0)
-		, m_Aeff(1.0)
+		,m_dwellFreqResolution(100.0)
+		,m_tuningStep(20)
+		,m_rfCovMin(500)
+		,m_rfCovMax(12000)
+		,m_numPulsesAcquisition(200)
+		,m_numPulsesAlarm(100)
+		,m_esmMinDwellTime(0.01)
+		,m_nEmitter(2)
+		,m_taoScan(1.0)
+		,m_Pmin(1.0)
+		,m_Aeff(1.0)
 	{
 	}
 
@@ -2122,29 +1925,23 @@ namespace sce
 	/************************Route*****************************/
 	Route::Route(void)
 		:m_name("Route1")
-		, m_wayPoints({ WayPoint() })
 	{
 
 	}
 
 	Route::Route(const std::string &name)
 		:m_name(name)
-		,m_wayPoints({ WayPoint() })
 	{
 
 	}
 
-	Route::Route(const std::string &name,
-		const WayPoint &wayPoint)
+	Route::Route(const std::string &name, const WayPoint &wayPoint)
 		:m_name(name)
-		, m_wayPoints({ wayPoint })
 	{
 	}
 
-	Route::Route(const std::string &name,
-		const std::vector<WayPoint>&wayPoints)
-		: m_name(name)
-		, m_wayPoints(wayPoints)
+	Route::Route(const std::string &name, const std::vector<WayPoint>&wayPoints)
+		: m_name(name), m_wayPoints(wayPoints)
 	{
 	}
 
@@ -2276,24 +2073,12 @@ namespace sce
 
 	/*********************DwellSquence***********************************/
 	DwellSquence::DwellSquence(void)
-		:m_index(1)
-		, m_minFreq(100)
-		, m_maxFreq(200)
-		, m_startTime(0.0)
-		, m_endTime(30.0)
+		:m_index(1), m_minFreq(100), m_maxFreq(200), m_startTime(0.0), m_endTime(30.0)
 	{
 	}
 
-	DwellSquence::DwellSquence(const size_t &index,
-		const size_t &minFreq,
-		const size_t &maxFreq,
-		const double &startTime,
-		const double &endTime)
-		:m_index(index)
-		, m_minFreq(minFreq)
-		, m_maxFreq(maxFreq)
-		, m_startTime(startTime)
-		, m_endTime(endTime)
+	DwellSquence::DwellSquence(const size_t &index, const size_t &minFreq, const size_t &maxFreq, const double &startTime, const double &endTime)
+		:m_index(index), m_minFreq(minFreq), m_maxFreq(maxFreq), m_startTime(startTime), m_endTime(endTime)
 	{
 	}
 
@@ -2358,19 +2143,14 @@ namespace sce
 		, m_endTime(100)
 		, m_startLocation(Location())
 		, m_endLocation(Location())
-		, m_dwellSquences({ DwellSquence() })
 	{
 	}
 
-	EsmStrategySection::EsmStrategySection(const double &startTime,
-		const double &endTime,
-		const Location &startLocation,
-		const Location &endLocation)
+	EsmStrategySection::EsmStrategySection(const double &startTime,	const double &endTime, const Location &startLocation, const Location &endLocation)
 		:m_startTime(startTime)
 		,m_endTime(endTime)
 		,m_startLocation(startLocation)
 		,m_endLocation(endLocation)
-		,m_dwellSquences({ DwellSquence() })
 	{
 	}
 
@@ -2391,7 +2171,7 @@ namespace sce
 		const double &endTime,
 		const Location &startLocation,
 		const Location &endLocation,
-		const std::vector<DwellSquence>&dwellsquences)
+		const std::vector<DwellSquence> &dwellsquences)
 		:m_startTime(startTime)
 		, m_endTime(endTime)
 		, m_startLocation(startLocation)
@@ -2512,13 +2292,11 @@ namespace sce
 	/********************EsmStrategy*********************************/
 	EsmStrategy::EsmStrategy(void)
 		:m_name("ESM Strategy 1")
-		, m_ptrSections({ std::make_shared<EsmStrategySection>(EsmStrategySection()) })
 	{
 	}
 
 	EsmStrategy::EsmStrategy(const std::string &name)
 		: m_name(name)
-		, m_ptrSections({ std::make_shared<EsmStrategySection>(EsmStrategySection()) })
 	{
 	}
 
@@ -2613,36 +2391,17 @@ namespace sce
 
 	/*************************EcmStrategySection**********************************/
 	EcmStrategySection::EcmStrategySection(void)
-		:m_startTime(0.0)
-		, m_endTime(100.0)
-		, m_startLocation(Location())
-		, m_endLocation(Location())
-		, m_tech(Tech::NOISE)
+		:m_startTime(0.0), m_endTime(100.0), m_startLocation(Location()), m_endLocation(Location()), m_tech(Tech::NOISE)
 	{
 	}
 
-	EcmStrategySection::EcmStrategySection(const double &startTime,
-		const double &endTime,
-		const Location &startLocation,
-		const Location &endLocation)
-		:m_startTime(startTime)
-		,m_endTime(endTime)
-		,m_startLocation(startLocation)
-		,m_endLocation(endLocation)
-		,m_tech(Tech::NOISE)
+	EcmStrategySection::EcmStrategySection(const double &startTime,	const double &endTime, const Location &startLocation, const Location &endLocation)
+		:m_startTime(startTime), m_endTime(endTime), m_startLocation(startLocation), m_endLocation(endLocation), m_tech(Tech::NOISE)
 	{
 	}
 
-	EcmStrategySection::EcmStrategySection(const double &startTime,
-		const double &endTime,
-		const Location &startLocation,
-		const Location &endLocation,
-		const Tech &techName)
-		:m_startTime(startTime)
-		,m_endTime(endTime)
-		,m_startLocation(startLocation)
-		,m_endLocation(endLocation)
-		,m_tech(techName)
+	EcmStrategySection::EcmStrategySection(const double &startTime,	const double &endTime, const Location &startLocation, const Location &endLocation, const Tech &techName)
+		:m_startTime(startTime), m_endTime(endTime), m_startLocation(startLocation), m_endLocation(endLocation), m_tech(techName)
 	{
 	}
 
@@ -2704,25 +2463,21 @@ namespace sce
 	/***************************EcmStrategy******************************/
 	EcmStrategy::EcmStrategy(void)
 		:m_name("ECM Strategy 1")
-		, m_ptrSections({ std::make_shared<EcmStrategySection>(EcmStrategySection()) })
 	{
 	}
 
 	EcmStrategy::EcmStrategy(const std::string &name)
 		: m_name(name)
-		, m_ptrSections({ std::make_shared<EcmStrategySection>(EcmStrategySection()) })
 	{
 	}
 
-	EcmStrategy::EcmStrategy(const std::string &name,
-		const std::shared_ptr<EcmStrategySection>&ptrEcmStrategySection)
+	EcmStrategy::EcmStrategy(const std::string &name, const std::shared_ptr<EcmStrategySection>&ptrEcmStrategySection)
 		: m_name(name)
 		, m_ptrSections({ ptrEcmStrategySection })
 	{
 	}
 
-	EcmStrategy::EcmStrategy(const std::string &name,
-		const std::vector<std::shared_ptr<EcmStrategySection>>& ptrEcmStrategySections)
+	EcmStrategy::EcmStrategy(const std::string &name, const std::vector<std::shared_ptr<EcmStrategySection>>& ptrEcmStrategySections)
 		: m_name(name)
 		, m_ptrSections(ptrEcmStrategySections)
 	{
@@ -3063,10 +2818,8 @@ namespace sce
 		,m_ptrEcmStrategy(std::make_shared<EcmStrategy>(EcmStrategy()))
 	{
 	}
-	EcmEcmStrategyRelation::EcmEcmStrategyRelation(const std::shared_ptr<Ecm> ptrEcm,
-		const std::shared_ptr<EcmStrategy> ptrEcmStrategy)
-		:m_ptrEcm(ptrEcm)
-		,m_ptrEcmStrategy(ptrEcmStrategy)
+	EcmEcmStrategyRelation::EcmEcmStrategyRelation(const std::shared_ptr<Ecm> ptrEcm, const std::shared_ptr<EcmStrategy> ptrEcmStrategy)
+		:m_ptrEcm(ptrEcm), m_ptrEcmStrategy(ptrEcmStrategy)
 	{
 	}
 	//	EcmEcmStrategyRelation::~EcmEcmStrategyRelation(void)

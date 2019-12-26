@@ -566,7 +566,7 @@ void RoutePlannGui::on_open()
 	/*delete scenario;
 	Scenario* te =new Scenario();
 	scenario = te;*/
-	memset(&scenario, 0, sizeof(scenario));
+	//memset(&scenario, 0, sizeof(scenario));
 	if (!file.open(QIODevice::ReadWrite))
 	{
 		return;
