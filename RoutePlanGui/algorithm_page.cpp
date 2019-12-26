@@ -15,6 +15,8 @@
 #include "DE_main.hpp"
 #include "de_types.hpp"
 
+#include "A_STAR.h"
+
 algorithm_page::algorithm_page(QWidget *parent)
 	: QWidget(parent)
 {
@@ -98,6 +100,7 @@ void algorithm_page::run_algorithm()
 			}
 			else {
 				qDebug() << "choice is  A*";
+				//A_STAR a(sp, tp, ep, radav, mg, e_w1, survice_w1, start_w1, end_w1, horizontal_corner1, verticality_corner1, hmin1, hmax1, StepLength1);
 			}
 		}
 		if (tab_index == 1) //choose DE algorithm
@@ -137,9 +140,9 @@ void algorithm_page::run_algorithm()
 						route->addWayPoint(sce::WayPoint(iter, node.longitude(), node.latitude(), node.altitude()));
 					}
 				}
-								
-				qDebug() << "DE complete!";
-								
+				
+				scenario.addRoute(route);
+				qDebug() << "DE complete!";								
 			}
 		}
 		if (tab_index == 2) //choose PSO algorithm

@@ -99,13 +99,13 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;$(SolutionDir)QAStar\Output\$(Configuration)\QAStar.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -114,29 +114,29 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;$(SolutionDir)QAStar\Output\$(Configuration)\QAStar.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;$(SolutionDir)QAStar\Output\$(Configuration)\QAStar.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;$(SolutionDir)QAStar\Output\$(Configuration)\QAStar.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
