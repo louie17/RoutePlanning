@@ -47,7 +47,7 @@ public:
 	QVector<float> width;
 	QVector<float> depth;
 
-
+	QVector<APoint*>route;
 
 
 

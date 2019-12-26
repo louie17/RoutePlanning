@@ -2,20 +2,10 @@
 
 
 
-Rada::Rada()
-{
-}
+Rada::Rada() :type(0), x(0), y(0), z(0), r(0), i(0) {}
 
-Rada::Rada(int type, float x, float y, float z, float r, float i)
-{
-	this->type = type;
-	this->x = x;
-	this->y = y;
-	this->z = z;
-	this->r = r;
-	this->i = i;
+Rada::Rada(int type, float x, float y, float z, float r, float i) :type(type), x(x), y(y), z(z), r(r), i(i) {}
 
-}
 
 
 Rada::~Rada()

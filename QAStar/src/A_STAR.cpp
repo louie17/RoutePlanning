@@ -143,14 +143,15 @@ A_STAR::A_STAR( APoint& sp,  APoint& tp,  APoint& ep,  QVector<Rada*>& radav,  M
 			QString str = QString("%1,%2,%3").arg(x1[i]).arg(y1[i]).arg(z1[i]);
 			file.write(str.toLatin1());
 			file.write("\n");
-
-
+			APoint route1(x1[i],y1[i],z1[i],0,0,0,0,0);
+			route.append(&route1);
+				
 		}
 
 
 	}
 	file.close();
-
+	
 	
 
 }

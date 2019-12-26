@@ -83,24 +83,105 @@ void algorithm_page::run_algorithm()
 			auto ret = swRelation.insert(std::make_pair(iterS, wcrange[i]));
 			assert(ret.second);
 		}
+		//获取路径片段的起始终止点序列
+		size_t target_size = scenario.getAllOwnPlatform()[op_index]->getMission().getAllTargetPoints().size();
+		assert(target_size);
+		std::vector<sce::Point> mission_section{ scenario.getAllOwnPlatform()[op_index]->getMission().getStartPoint() ,scenario.getAllOwnPlatform()[op_index]->getMission().getEndPoint() };
+		if (target_size > 0)
+		{
+			for (size_t i = 0; i < target_size; ++i)
+			{
+				mission_section.insert(mission_section.end() - 1, scenario.getAllOwnPlatform()[op_index]->getMission().getTargetPoint(i));
+			}
+		}
+
 
 		//scenario.getAllOwnPlatform->at(0);
 
 		if (tab_index == 0) //choose a* algorithm
 		{
-			double Survivability_Weight = ui.lineEdit->text().toDouble();
-			double Target_Weight = ui.lineEdit_2->text().toDouble();
-			double Step_Length = ui.lineEdit_3->text().toDouble();
-			double Route_Length_Wegith = ui.lineEdit_4->text().toDouble();
-			double Min_Launch_Height = ui.lineEdit_5->text().toDouble();
+			
+	
+			float survice_w1 = ui.lineEdit->text().toFloat();
+			float end_w1 = ui.lineEdit_2->text().toFloat();
+			float StepLength1 = ui.lineEdit_3->text().toFloat();
+			float hmin1 = ui.lineEdit_5->text().toFloat();
+			float hmax1 = ui.lineEdit_19->text().toFloat();
+			float horizontal_corner1 = ui.lineEdit_20->text().toFloat();
+			float verticality_corner1 = ui.lineEdit_22->text().toFloat();
+			float e_w1 = ui.lineEdit_23->text().toFloat();
+			float start_w1 = ui.lineEdit_21->text().toFloat();
+
 			int ree = QMessageBox::information(this, "Tip", "Choose a* algorithm ?", QStringLiteral("Yes"), QStringLiteral("No"));
+
+			////确定航路的起点，任务点，结束点
+			//auto routev = scenario.getAllRoute();
+			//auto my_route1 = routev[0]->getAllWayPoints();
+			//auto startpoint = my_route1[0];
+			//auto target0 = my_route1[1];
+			//auto endpoint = my_route1[2];
+			////确定雷达的位置
+			//auto sitev = scenario.getAllSite();
+			//auto site1 = sitev[0];
+			//APoint sp(100, 100, 1, 0, 0, 0, 0, 0);
+			//APoint tp(440, 370, 1, 0, 0, 0, 0, 0);
+			//APoint ep(800, 500, 1, 0, 0, 0, 0, 0);
+			QVector<Rada*> radav;
+			for (auto x : swRelation)
+			{
+				auto site = x.first;
+				auto weapon_cov = x.second;
+				Rada Rada2(2, site->getLongitude(), site->getLatitude(),site->getAltitude(), weapon_cov, 1);
+				radav.append(&Rada2);
+			}
+
+	/*		Rada Rada1(1, site1->getLatitude(), site1->getLongitude(), site1->getAltitude(),100,1);
+			Rada Rada2(2, site1->getLatitude(), site1->getLongitude(), site1->getAltitude(), 70, 1);
+			Rada Rada3(3,  site1->getLatitude(), site1->getLongitude(), site1->getAltitude(), 70, 1);*/
+			//Rada Rada1(1, 450, 350, 0, 100, 1);
+			//Rada Rada2(2, 450, 350, 0, 50, 1);
+			//Rada Rada3(3, 450, 350, 0, 70, 1);
+			//radav.append(&Rada1);
+			//radav.append(&Rada2);
+			//radav.append(&Rada3);
+			
+	/*		Mission_G mg(1, 440, 370, 1, 0, 0);
+			float survice_w1 = 1.0f;
+			float start_w1 = 8000;
+			float end_w1 = 10000;
+			float e_w1 = 0.5;
+			float hmin1 = 0.0f;
+			float hmax1 = 3.0f;
+			float horizontal_corner1 = 0.7854f;
+			float verticality_corner1 = 0.5236f;
+			float StepLength1 = 4.0f;*/
+
+
+			QVector<APoint*> routev;
 			if (ree != 0)
 			{
 				return;
 			}
 			else {
 				qDebug() << "choice is  A*";
-				//A_STAR a(sp, tp, ep, radav, mg, e_w1, survice_w1, start_w1, end_w1, horizontal_corner1, verticality_corner1, hmin1, hmax1, StepLength1);
+				for (int i = 0; i < mission_section.size() - 2; i++)
+				{
+				APoint sp( mission_section[i].getLongitude(), mission_section[i].getLatitude(), mission_section[i].getAltitude(), 0, 0, 0, 0, 0);
+					APoint tp(mission_section[i].getLongitude(), mission_section[i+1].getLatitude(),  mission_section[i].getAltitude(), 0, 0, 0, 0, 0);
+					APoint ep(mission_section[i + 2].getLongitude(), mission_section[i+2].getLatitude(),  mission_section[i + 2].getAltitude(), 0, 0, 0, 0, 0);
+					Mission_G mg(1, mission_section[i + 1].getLongitude(), mission_section[i + 1].getLatitude(), mission_section[i+1].getAltitude(), 2, 0.25);
+					A_STAR a(sp, tp, ep, radav, mg, e_w1, survice_w1, start_w1, end_w1, horizontal_corner1, verticality_corner1, hmin1, hmax1, StepLength1);
+					routev.append(a.route);
+
+				}
+				sce::Route_ptr route;
+				for (int i = 0; i < routev.size(); i++)
+				{
+					route->addWayPoint(sce::WayPoint(i,routev[i]->X, routev[i]->Y, routev[i]->Z));
+				}
+
+				scenario.addRoute(route);
+				qDebug() << " A* complete";
 			}
 		}
 		if (tab_index == 1) //choose DE algorithm
@@ -117,16 +198,7 @@ void algorithm_page::run_algorithm()
 			}
 			else {
 				qDebug() << "choice is DE";
-				size_t target_size=scenario.getAllOwnPlatform()[op_index]->getMission().getAllTargetPoints().size();
-				assert(target_size);
-				std::vector<sce::Point> mission_section{ scenario.getAllOwnPlatform()[op_index]->getMission().getStartPoint() ,scenario.getAllOwnPlatform()[op_index]->getMission().getEndPoint() };
-				if (target_size > 0)
-				{
-					for (size_t i = 0; i < target_size; ++i)
-					{
-						mission_section.insert(mission_section.end()-2, scenario.getAllOwnPlatform()[op_index]->getMission().getTargetPoint(i));
-					}
-				}
+
 				
 				sce::Route_ptr route{std::make_shared<sce::Route>(sce::Route(ui.lineEdit_18->text().toStdString(),sce::WayPoint(mission_section[0].getLongitude(),mission_section[0].getLatitude(),mission_section[0].getAltitude())))};
 
