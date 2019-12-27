@@ -28,7 +28,6 @@ class RoutePlannGui : public QMainWindow
 public:
 	RoutePlannGui(QWidget *parent = Q_NULLPTR);
 	void listDom(QDomElement & docelem);
-	void find_data(QDomElement qd);
 	std::vector<std::shared_ptr<sce::Route>> routes;
 	std::vector<std::shared_ptr<sce::EsmStrategy>> esmstrategys;
 	std::vector<std::shared_ptr<sce::EcmStrategy>> ecmstrategys;
@@ -40,7 +39,6 @@ public:
 	std::vector<sce::OwnPlatformEcmRelation> OPEcmRs;
 	std::vector<sce::EcmEcmStrategyRelation> EcmESRs;
 	std::vector<sce::OwnPlatformRouteRelation> OPRRs;
-	void bind_str(QString, QString);
 	//sce::Scenario scenario;
 	QDomElement *ParentNode;
 	QDomElement *SibingNode;
@@ -48,6 +46,8 @@ private:
 	Ui::MainWindow ui;
 	QStringList platformtype_list;
 	QStringList ownplatformtype_list;
+
+	size_t open_flag{ 0 };
 signals:
 	void go_next();//œ‘ æœ¬“ª“≥
 	void rada_mode();
@@ -55,10 +55,12 @@ signals:
 	void sign_add_rada();
 	void sign_mission();
 	void sign_added_mission();
+	void sign_show_xml_data();
 	void show_data_page2();
 	void show_data_page3();
 private slots:
 	void show_rada();
+	void setOpenFileFlag();
 	void save_vertex();
 	void save_platform();
 	void save_weapon();

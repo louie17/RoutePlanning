@@ -83,6 +83,7 @@ void algorithm_page::run_algorithm()
 			auto ret = swRelation.insert(std::make_pair(iterS, wcrange[i]));
 			assert(ret.second);
 		}
+
 		//获取路径片段的起始终止点序列
 		size_t target_size = scenario.getAllOwnPlatform()[op_index]->getMission().getAllTargetPoints().size();
 		assert(target_size);
@@ -94,9 +95,6 @@ void algorithm_page::run_algorithm()
 				mission_section.insert(mission_section.end() - 1, scenario.getAllOwnPlatform()[op_index]->getMission().getTargetPoint(i));
 			}
 		}
-
-
-		//scenario.getAllOwnPlatform->at(0);
 
 		if (tab_index == 0) //choose a* algorithm
 		{
@@ -198,7 +196,6 @@ void algorithm_page::run_algorithm()
 			}
 			else {
 				qDebug() << "choice is DE";
-
 				
 				sce::Route_ptr route{std::make_shared<sce::Route>(sce::Route(ui.lineEdit_18->text().toStdString(),sce::WayPoint(mission_section[0].getLongitude(),mission_section[0].getLatitude(),mission_section[0].getAltitude())))};
 

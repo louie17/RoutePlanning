@@ -160,6 +160,7 @@
     <ClCompile Include="Scan.cpp" />
     <ClCompile Include="Section_page.cpp" />
     <ClCompile Include="tech_page.cpp" />
+    <ClCompile Include="xml_prase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h" />
@@ -211,6 +212,7 @@
   <ItemGroup>
     <ClInclude Include="MyTab.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="xml_prase.h" />
     <QtMoc Include="tech_page.h" />
     <QtMoc Include="Section_page.h" />
     <QtMoc Include="Scan_page.h" />
