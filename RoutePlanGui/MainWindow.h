@@ -9,15 +9,15 @@
 #include <QInputDialog>
 #include "Scenario.hpp"
 
-extern  sce::Scenario scenario;
-extern	int choice_emitter;
-extern	int choice_radar;
-extern	int choice_esmstrategy;
-extern	int choice_ecmstrategy;
-extern	int choice_section;
-extern  int choice_ecm;
-extern  int choice_ownplatform;
-extern  int choice_point;
+extern sce::Scenario scenario;
+extern int choice_emitter;
+extern int choice_radar;
+extern int choice_esmstrategy;
+extern int choice_ecmstrategy;
+extern int choice_section;
+extern int choice_ecm;
+extern int choice_ownplatform;
+extern int choice_point;
 extern QDomDocument dom;
 extern QFile file;
 

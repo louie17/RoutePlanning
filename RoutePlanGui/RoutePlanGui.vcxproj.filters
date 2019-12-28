@@ -88,6 +88,9 @@
     <ClCompile Include="xml_prase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RouteEvaluation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="algorithm_page.h">
@@ -200,6 +203,9 @@
     <QtUic Include="tech_page.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="MarkovEvaluate.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="RoutePlanGui.qrc">
@@ -217,6 +223,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xml_prase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RouteEvaluation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

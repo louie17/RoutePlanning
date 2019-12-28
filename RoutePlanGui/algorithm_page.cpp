@@ -11,6 +11,7 @@
 #include "MainWindow2.h"
 #include "MainWindow.h"
 #include "ui_algorithm_page.h"
+#include "RouteEvaluation.h"
 
 #include "DE_main.hpp"
 #include "de_types.hpp"
@@ -24,6 +25,8 @@ algorithm_page::algorithm_page(QWidget *parent)
 	setWindowTitle(tr("Choose algorithm"));//设置标题	
 	connect(ui.pushButton_2, SIGNAL(clicked()), this, SLOT(run_algorithm()));
 	QObject::connect(ui.comboBox,SIGNAL(currentIndexChanged(int)), this, SLOT(setLabelText(int)));
+
+	connect(ui.pushButton_4, SIGNAL(clicked()), this, SLOT(show_markov()));
 }
 
 algorithm_page::~algorithm_page()
@@ -55,7 +58,7 @@ void algorithm_page::run_algorithm()
 
 		//根据威胁位置获取每个威胁的最大武器射程
 		std::vector<double> wcrange(scenario.getAllSite().size(), 0.0);
-		sce::Site_WeaponRange_relation swRelation;
+		sce::Site_WeaponRange_relation swrRelation;
 
 		assert(scenario.getAllSite().size() > 0);
 		assert(scenario.getAllPlatformSiteRelation().size() > 0);
@@ -80,7 +83,7 @@ void algorithm_page::run_algorithm()
 			}
 			assert(siteTmp.size() >= 0);
 			wcrange[i] = siteTmp.size() > 0 ? *std::max_element(siteTmp.cbegin(), siteTmp.cend()) : 0.0;
-			auto ret = swRelation.insert(std::make_pair(iterS, wcrange[i]));
+			auto ret = swrRelation.insert(std::make_pair(iterS, wcrange[i]));
 			assert(ret.second);
 		}
 
@@ -125,12 +128,12 @@ void algorithm_page::run_algorithm()
 			//APoint tp(440, 370, 1, 0, 0, 0, 0, 0);
 			//APoint ep(800, 500, 1, 0, 0, 0, 0, 0);
 			QVector<Rada*> radav;
-			for (auto x : swRelation)
+			for (auto x : swrRelation)
 			{
 				auto site = x.first;
 				auto weapon_cov = x.second;
-				Rada Rada2(2, site->getLongitude(), site->getLatitude(),site->getAltitude(), weapon_cov, 1);
-				radav.append(&Rada2);
+				//Rada Rada2(2, site->getLongitude(), site->getLatitude(),site->getAltitude(), weapon_cov, 1);
+				//radav.append(&Rada2);
 			}
 
 	/*		Rada Rada1(1, site1->getLatitude(), site1->getLongitude(), site1->getAltitude(),100,1);
@@ -164,7 +167,7 @@ void algorithm_page::run_algorithm()
 				qDebug() << "choice is  A*";
 				for (int i = 0; i < mission_section.size() - 2; i++)
 				{
-				APoint sp( mission_section[i].getLongitude(), mission_section[i].getLatitude(), mission_section[i].getAltitude(), 0, 0, 0, 0, 0);
+					APoint sp(mission_section[i].getLongitude(), mission_section[i].getLatitude(), mission_section[i].getAltitude(), 0, 0, 0, 0, 0);
 					APoint tp(mission_section[i].getLongitude(), mission_section[i+1].getLatitude(),  mission_section[i].getAltitude(), 0, 0, 0, 0, 0);
 					APoint ep(mission_section[i + 2].getLongitude(), mission_section[i+2].getLatitude(),  mission_section[i + 2].getAltitude(), 0, 0, 0, 0, 0);
 					Mission_G mg(1, mission_section[i + 1].getLongitude(), mission_section[i + 1].getLatitude(), mission_section[i+1].getAltitude(), 2, 0.25);
@@ -173,13 +176,18 @@ void algorithm_page::run_algorithm()
 
 				}
 				sce::Route_ptr route;
-				for (int i = 0; i < routev.size(); i++)
+				for (size_t i = 0; i < routev.size(); i++)
 				{
 					route->addWayPoint(sce::WayPoint(i,routev[i]->X, routev[i]->Y, routev[i]->Z));
 				}
 
 				scenario.addRoute(route);
 				qDebug() << " A* complete";
+				/* 马尔可夫评估*/
+				//markov_init(0, 0,0,0,0,0,0, route,  swRelation);
+
+
+
 			}
 		}
 		if (tab_index == 1) //choose DE algorithm
@@ -201,7 +209,7 @@ void algorithm_page::run_algorithm()
 
 				for (size_t i = 0; i < target_size; ++i)
 				{
-					de::NVectorPtr route_section(de::De_alg(swRelation, scenario.getAllVertex(), mission_section[i], mission_section[i+1], Population_Number, Initial_Node_Number, Evolution_Number, Weight, Cross_Probability));	
+					de::NVectorPtr route_section(de::De_alg(swrRelation, scenario.getAllVertex(), mission_section[i], mission_section[i+1], Population_Number, Initial_Node_Number, Evolution_Number, Weight, Cross_Probability));
 
 					for (size_t iter = 1; iter < route_section->size(); ++iter)
 					{
@@ -211,7 +219,8 @@ void algorithm_page::run_algorithm()
 				}
 				
 				scenario.addRoute(route);
-				qDebug() << "DE complete!";								
+				qDebug() << "DE complete!";		
+				markov_init(0, 0, 0, 0, 0, 0, 0, route, scenario.SiteWeaponRelation());
 			}
 		}
 		if (tab_index == 2) //choose PSO algorithm
@@ -268,4 +277,10 @@ void algorithm_page::show_algorithm_page()
 		ownPlatformlist.append(QString::fromStdString(scenario.getAllOwnPlatform()[i]->getName()));
 	}
 	ui.comboBox->addItems(ownPlatformlist);
+}
+
+void algorithm_page::show_markov()
+{
+	this->hide();
+	emit go_markov();
 }

@@ -5,9 +5,6 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QVector>
 #include "Scenario.hpp"
 
 bool find_Vertex_data(const QDomElement &qd,sce::Scenario &scenario);

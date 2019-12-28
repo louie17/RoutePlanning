@@ -2565,8 +2565,8 @@ namespace sce
 	{
 	}
 
-	PlatformSiteRelation::PlatformSiteRelation(const std::shared_ptr<Platform> ptrPlatform,
-		const std::shared_ptr<Site> ptrSite)
+	PlatformSiteRelation::PlatformSiteRelation(const Platform_ptr ptrPlatform,
+		const Site_ptr ptrSite)
 		:m_ptrPlatform(ptrPlatform)
 		,m_ptrSite(ptrSite)
 	{
@@ -2585,19 +2585,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrSite->getName();
 	}
-	std::shared_ptr<Site> PlatformSiteRelation::getSite(void)
+	Site_ptr PlatformSiteRelation::getSite(void)
 	{
 		return m_ptrSite;
 	}
-	std::shared_ptr<Platform> PlatformSiteRelation::getPlatform(void)
+	Platform_ptr PlatformSiteRelation::getPlatform(void)
 	{
 		return m_ptrPlatform;
 	}
-	void PlatformSiteRelation::setPlatform(const std::shared_ptr<Platform> ptrPlatform)
+	void PlatformSiteRelation::setPlatform(const Platform_ptr ptrPlatform)
 	{
 		m_ptrPlatform = ptrPlatform;
 	}
-	void PlatformSiteRelation::setSite(const std::shared_ptr<Site> ptrSite)
+	void PlatformSiteRelation::setSite(const Site_ptr ptrSite)
 	{
 		m_ptrSite = ptrSite;
 	}
@@ -2608,8 +2608,8 @@ namespace sce
 		,m_ptrEmitter(std::make_shared<Emitter>(Emitter()))
 	{
 	}
-	PlatformEmitterRelation::PlatformEmitterRelation(const std::shared_ptr<Platform> ptrPlatform,
-		const std::shared_ptr<Emitter> ptrEmitter)
+	PlatformEmitterRelation::PlatformEmitterRelation(const Platform_ptr ptrPlatform,
+		const Emitter_ptr ptrEmitter)
 		:m_ptrPlatform(ptrPlatform)
 		,m_ptrEmitter(ptrEmitter)
 	{
@@ -2627,19 +2627,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrEmitter->getName();
 	}
-	std::shared_ptr<Platform> PlatformEmitterRelation::getPlatform(void)
+	Platform_ptr PlatformEmitterRelation::getPlatform(void)
 	{
 		return m_ptrPlatform;
 	}
-	std::shared_ptr<Emitter> PlatformEmitterRelation::getEmitter(void)
+	Emitter_ptr PlatformEmitterRelation::getEmitter(void)
 	{
 		return m_ptrEmitter;
 	}
-	void PlatformEmitterRelation::setPlatform(const std::shared_ptr<Platform> ptrPlatform)
+	void PlatformEmitterRelation::setPlatform(const Platform_ptr ptrPlatform)
 	{
 		m_ptrPlatform = ptrPlatform;
 	}
-	void PlatformEmitterRelation::setEmitter(const std::shared_ptr<Emitter> ptrEmitter)
+	void PlatformEmitterRelation::setEmitter(const Emitter_ptr ptrEmitter)
 	{
 		m_ptrEmitter = ptrEmitter;
 	}
@@ -2650,8 +2650,8 @@ namespace sce
 		,m_ptrWeapon(std::make_shared<Weapon>(Weapon()))
 	{
 	}
-	PlatformWeaponRelation::PlatformWeaponRelation(const std::shared_ptr<Platform> ptrPlatform,
-		const std::shared_ptr<Weapon> ptrWeapon)
+	PlatformWeaponRelation::PlatformWeaponRelation(const Platform_ptr ptrPlatform,
+		const Weapon_ptr ptrWeapon)
 		:m_ptrPlatform(ptrPlatform)
 		,m_ptrWeapon(ptrWeapon)
 	{
@@ -2669,19 +2669,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrWeapon->getName();
 	}
-	std::shared_ptr<Platform> PlatformWeaponRelation::getPlatform(void)
+	Platform_ptr PlatformWeaponRelation::getPlatform(void)
 	{
 		return m_ptrPlatform;
 	}
-	std::shared_ptr<Weapon> PlatformWeaponRelation::getWeapon(void)
+	Weapon_ptr PlatformWeaponRelation::getWeapon(void)
 	{
 		return m_ptrWeapon;
 	}
-	void PlatformWeaponRelation::setPlatform(const std::shared_ptr<Platform> ptrPlatform)
+	void PlatformWeaponRelation::setPlatform(const Platform_ptr ptrPlatform)
 	{
 		m_ptrPlatform = ptrPlatform;
 	}
-	void PlatformWeaponRelation::setWeapon(const std::shared_ptr<Weapon> ptrWeapon)
+	void PlatformWeaponRelation::setWeapon(const Weapon_ptr ptrWeapon)
 	{
 		m_ptrWeapon = ptrWeapon;
 	}
@@ -2692,8 +2692,8 @@ namespace sce
 		,m_ptrEsm(std::make_shared<Esm>(Esm()))
 	{
 	}
-	OwnPlatformEsmRelation::OwnPlatformEsmRelation(const std::shared_ptr<OwnPlatform> ptrOwnPlatform,
-		const std::shared_ptr<Esm> ptrEsm)
+	OwnPlatformEsmRelation::OwnPlatformEsmRelation(const OwnPlatform_ptr ptrOwnPlatform,
+		const Esm_ptr ptrEsm)
 		:m_ptrOwnPlatform(ptrOwnPlatform)
 		, m_ptrEsm(ptrEsm)
 	{
@@ -2711,19 +2711,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrEsm->getName();
 	}
-	std::shared_ptr<OwnPlatform> OwnPlatformEsmRelation::getOwnPlatform(void)
+	OwnPlatform_ptr OwnPlatformEsmRelation::getOwnPlatform(void)
 	{
 		return m_ptrOwnPlatform;
 	}
-	std::shared_ptr<Esm> OwnPlatformEsmRelation::getEsm(void)
+	Esm_ptr OwnPlatformEsmRelation::getEsm(void)
 	{
 		return m_ptrEsm;
 	}
-	void OwnPlatformEsmRelation::setOwnPlatform(const std::shared_ptr<OwnPlatform> ptrOwnPlatform)
+	void OwnPlatformEsmRelation::setOwnPlatform(const OwnPlatform_ptr ptrOwnPlatform)
 	{
 		m_ptrOwnPlatform = ptrOwnPlatform;
 	}
-	void OwnPlatformEsmRelation::setEsm(const std::shared_ptr<Esm> ptrEsm)
+	void OwnPlatformEsmRelation::setEsm(const Esm_ptr ptrEsm)
 	{
 		m_ptrEsm = ptrEsm;
 	}
@@ -2734,8 +2734,8 @@ namespace sce
 		,m_ptrEsmStrategy(std::make_shared<EsmStrategy>(EsmStrategy()))
 	{
 	}
-	EsmEsmStrategyRelation::EsmEsmStrategyRelation(const std::shared_ptr<Esm>ptrEsm,
-		const std::shared_ptr<EsmStrategy> ptrEsmStrategy)
+	EsmEsmStrategyRelation::EsmEsmStrategyRelation(const Esm_ptr ptrEsm,
+		const EsmStrategy_ptr ptrEsmStrategy)
 		:m_ptrEsm(ptrEsm)
 		, m_ptrEsmStrategy(ptrEsmStrategy)
 	{
@@ -2753,19 +2753,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrEsmStrategy->getName();
 	}
-	std::shared_ptr<EsmStrategy> EsmEsmStrategyRelation::getEsmStrategy(void)
+	EsmStrategy_ptr EsmEsmStrategyRelation::getEsmStrategy(void)
 	{
 		return m_ptrEsmStrategy;
 	}
-	std::shared_ptr<Esm> EsmEsmStrategyRelation::getEsm(void)
+	Esm_ptr EsmEsmStrategyRelation::getEsm(void)
 	{
 		return m_ptrEsm;
 	}
-	void EsmEsmStrategyRelation::setEsm(const std::shared_ptr<Esm> ptrEsm)
+	void EsmEsmStrategyRelation::setEsm(const Esm_ptr ptrEsm)
 	{
 		m_ptrEsm = ptrEsm;
 	}
-	void EsmEsmStrategyRelation::setEsmStrategy(const std::shared_ptr<EsmStrategy> ptrEsmStrategy)
+	void EsmEsmStrategyRelation::setEsmStrategy(const EsmStrategy_ptr ptrEsmStrategy)
 	{
 		m_ptrEsmStrategy = ptrEsmStrategy;
 	}
@@ -2776,8 +2776,8 @@ namespace sce
 		,m_ptrEcm(std::make_shared<Ecm>(Ecm()))
 	{
 	}
-	OwnPlatformEcmRelation::OwnPlatformEcmRelation(const std::shared_ptr<OwnPlatform> ptrOwnPlatform,
-		const std::shared_ptr<Ecm> ptrEcm)
+	OwnPlatformEcmRelation::OwnPlatformEcmRelation(const OwnPlatform_ptr ptrOwnPlatform,
+		const Ecm_ptr ptrEcm)
 		:m_ptrOwnPlatform(ptrOwnPlatform)
 		,m_ptrEcm(ptrEcm)
 	{
@@ -2795,19 +2795,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrEcm->getName();
 	}
-	std::shared_ptr<OwnPlatform> OwnPlatformEcmRelation::getOwnPlatform(void)
+	OwnPlatform_ptr OwnPlatformEcmRelation::getOwnPlatform(void)
 	{
 		return m_ptrOwnPlatform;
 	}
-	std::shared_ptr<Ecm> OwnPlatformEcmRelation::getEcm(void)
+	Ecm_ptr OwnPlatformEcmRelation::getEcm(void)
 	{
 		return m_ptrEcm;
 	}
-	void OwnPlatformEcmRelation::setOwnPlatform(const std::shared_ptr<OwnPlatform> ptrOwnPlatform)
+	void OwnPlatformEcmRelation::setOwnPlatform(const OwnPlatform_ptr ptrOwnPlatform)
 	{
 		m_ptrOwnPlatform = ptrOwnPlatform;
 	}
-	void OwnPlatformEcmRelation::setEcm(const std::shared_ptr<Ecm> ptrEcm)
+	void OwnPlatformEcmRelation::setEcm(const Ecm_ptr ptrEcm)
 	{
 		m_ptrEcm = ptrEcm;
 	}
@@ -2818,7 +2818,7 @@ namespace sce
 		,m_ptrEcmStrategy(std::make_shared<EcmStrategy>(EcmStrategy()))
 	{
 	}
-	EcmEcmStrategyRelation::EcmEcmStrategyRelation(const std::shared_ptr<Ecm> ptrEcm, const std::shared_ptr<EcmStrategy> ptrEcmStrategy)
+	EcmEcmStrategyRelation::EcmEcmStrategyRelation(const Ecm_ptr ptrEcm, const EcmStrategy_ptr ptrEcmStrategy)
 		:m_ptrEcm(ptrEcm), m_ptrEcmStrategy(ptrEcmStrategy)
 	{
 	}
@@ -2835,19 +2835,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrEcmStrategy->getName();
 	}
-	std::shared_ptr<EcmStrategy> EcmEcmStrategyRelation::getEcmStrategy(void)
+	EcmStrategy_ptr EcmEcmStrategyRelation::getEcmStrategy(void)
 	{
 		return m_ptrEcmStrategy;
 	}
-	std::shared_ptr<Ecm> EcmEcmStrategyRelation::getEcm(void)
+	Ecm_ptr EcmEcmStrategyRelation::getEcm(void)
 	{
 		return m_ptrEcm;
 	}
-	void EcmEcmStrategyRelation::setEcm(const std::shared_ptr<Ecm> ptrEcm)
+	void EcmEcmStrategyRelation::setEcm(const Ecm_ptr ptrEcm)
 	{
 		m_ptrEcm = ptrEcm;
 	}
-	void EcmEcmStrategyRelation::setEcmStrategy(const std::shared_ptr<EcmStrategy> ptrEcmStrategy)
+	void EcmEcmStrategyRelation::setEcmStrategy(const EcmStrategy_ptr ptrEcmStrategy)
 	{
 		m_ptrEcmStrategy = ptrEcmStrategy;
 	}
@@ -2858,8 +2858,8 @@ namespace sce
 		,m_ptrRoute(std::make_shared<Route>(Route()))
 	{
 	}
-	OwnPlatformRouteRelation::OwnPlatformRouteRelation(const std::shared_ptr<OwnPlatform> ptrOwnPlatform,
-		const std::shared_ptr<Route> ptrRoute)
+	OwnPlatformRouteRelation::OwnPlatformRouteRelation(const OwnPlatform_ptr ptrOwnPlatform,
+		const Route_ptr ptrRoute)
 		:m_ptrOwnPlatform(ptrOwnPlatform)
 		,m_ptrRoute(ptrRoute)
 	{
@@ -2877,19 +2877,19 @@ namespace sce
 		// TODO: 在此处插入 return 语句
 		return m_ptrRoute->getName();
 	}
-	std::shared_ptr<OwnPlatform> OwnPlatformRouteRelation::getOwnPlatform(void)
+	OwnPlatform_ptr OwnPlatformRouteRelation::getOwnPlatform(void)
 	{
 		return m_ptrOwnPlatform;
 	}
-	std::shared_ptr<Route> OwnPlatformRouteRelation::getRoute(void)
+	Route_ptr OwnPlatformRouteRelation::getRoute(void)
 	{
 		return m_ptrRoute;
 	}
-	void OwnPlatformRouteRelation::setOwnPlatform(const std::shared_ptr<OwnPlatform> ptrOwnPlatform)
+	void OwnPlatformRouteRelation::setOwnPlatform(const OwnPlatform_ptr ptrOwnPlatform)
 	{
 		m_ptrOwnPlatform = ptrOwnPlatform;
 	}
-	void OwnPlatformRouteRelation::setRoute(const std::shared_ptr<Route> ptrRoute)
+	void OwnPlatformRouteRelation::setRoute(const Route_ptr ptrRoute)
 	{
 		m_ptrRoute = ptrRoute;
 	}
@@ -2899,17 +2899,17 @@ namespace sce
 	{
 	}
 
-	Scenario::Scenario(std::shared_ptr<Vertex> vertexs,
-		std::shared_ptr<Platform> ptrPlatforms,
-		std::shared_ptr<Emitter> ptrEmitters,
-		std::shared_ptr<Weapon> ptrWeapons,
-		std::shared_ptr<Site> ptrSites,
-		std::shared_ptr<OwnPlatform> ptrOwnPlatforms,
-		std::shared_ptr<Esm> ptrEsms,
-		std::shared_ptr<Ecm> ptrEcms,
-		std::shared_ptr<Route> ptrRoutes,
-		std::shared_ptr<EsmStrategy> ptrEsmStrategy,
-		std::shared_ptr<EcmStrategy> ptrEcmStrategy,
+	Scenario::Scenario(Vertex_ptr vertexs,
+		Platform_ptr ptrPlatforms,
+		Emitter_ptr ptrEmitters,
+		Weapon_ptr ptrWeapons,
+		Site_ptr ptrSites,
+		OwnPlatform_ptr ptrOwnPlatforms,
+		Esm_ptr ptrEsms,
+		Ecm_ptr ptrEcms,
+		Route_ptr ptrRoutes,
+		EsmStrategy_ptr ptrEsmStrategy,
+		EcmStrategy_ptr ptrEcmStrategy,
 		PlatformSiteRelation& platformSiteRelations,
 		PlatformEmitterRelation& platformEmitterRelations,
 		PlatformWeaponRelation& platformWeaponRelations,
@@ -2939,17 +2939,17 @@ namespace sce
 		, m_OwnPlatformRouteRelation({ ownPlatformRouteRelations })
 	{
 	}
-	Scenario::Scenario(std::vector<std::shared_ptr<Vertex>>& vertexs,
-		std::vector<std::shared_ptr<Platform>>& ptrPlatforms,
-		std::vector<std::shared_ptr<Emitter>>& ptrEmitters,
-		std::vector<std::shared_ptr<Weapon>>& ptrWeapons,
-		std::vector<std::shared_ptr<Site>>& ptrSites,
-		std::vector<std::shared_ptr<OwnPlatform>>& ptrOwnPlatforms,
-		std::vector<std::shared_ptr<Esm>>& ptrEsms,
-		std::vector<std::shared_ptr<Ecm>>& ptrEcms,
-		std::vector<std::shared_ptr<Route>>& ptrRoutes,
-		std::vector<std::shared_ptr<EsmStrategy>>& ptrEsmStrategy,
-		std::vector<std::shared_ptr<EcmStrategy>>& ptrEcmStrategy,
+	Scenario::Scenario(VertexsVector& vertexs,
+		PlatformsVector& ptrPlatforms,
+		EmittersVector& ptrEmitters,
+		WeaponsVector& ptrWeapons,
+		SitesVector& ptrSites,
+		OwnPlatformsVector& ptrOwnPlatforms,
+		EsmsVector& ptrEsms,
+		EcmsVector& ptrEcms,
+		RoutesVector& ptrRoutes,
+		EsmStrategyVector& ptrEsmStrategy,
+		EcmStrategyVector& ptrEcmStrategy,
 		std::vector<PlatformSiteRelation>& platformSiteRelations,
 		std::vector<PlatformEmitterRelation>& platformEmitterRelations,
 		std::vector<PlatformWeaponRelation>& platformWeaponRelations,
@@ -2980,7 +2980,7 @@ namespace sce
 	{
 	}
 
-	std::shared_ptr<Vertex> Scenario::getPtr2Vertex(const size_t & pos)
+	Vertex_ptr Scenario::getPtr2Vertex(const size_t & pos)
 	{
 		assert(pos<m_ptrVertex.size());
 		if (pos<m_ptrVertex.size())
@@ -2989,7 +2989,7 @@ namespace sce
 		}
 		throw Error("can't return this value (doesn't exist)");
 	}
-	std::shared_ptr<Platform> Scenario::getPtr2Platform(const size_t & pos)
+	Platform_ptr Scenario::getPtr2Platform(const size_t & pos)
 	{
 		assert(pos < m_ptrPlatform.size());
 		if (pos < m_ptrPlatform.size())
@@ -2998,7 +2998,7 @@ namespace sce
 		}
 		throw Error("can't return this value (doesn't exist)");
 	}
-	std::shared_ptr<Emitter> Scenario::getPtr2Emitter(const size_t & pos)
+	Emitter_ptr Scenario::getPtr2Emitter(const size_t & pos)
 	{
 		assert(pos < m_ptrEmitter.size());
 		if (pos < m_ptrEmitter.size())
@@ -3007,7 +3007,7 @@ namespace sce
 		}
 		throw Error("can't return this value (doesn't exist)");
 	}
-	std::shared_ptr<Weapon> Scenario::getPtr2Weapon(const size_t & pos)
+	Weapon_ptr Scenario::getPtr2Weapon(const size_t & pos)
 	{
 		assert(pos < m_ptrWeapon.size());
 		if (pos < m_ptrWeapon.size())
@@ -3017,7 +3017,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<Site> Scenario::getPtr2Site(const size_t & pos)
+	Site_ptr Scenario::getPtr2Site(const size_t & pos)
 	{
 		assert(pos < m_ptrSite.size());
 		if (pos < m_ptrSite.size())
@@ -3027,7 +3027,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<OwnPlatform> Scenario::getPtr2OwnPlatform(const size_t & pos)
+	OwnPlatform_ptr Scenario::getPtr2OwnPlatform(const size_t & pos)
 	{
 		assert(pos < m_ptrOwnPlatform.size());
 		if (pos < m_ptrOwnPlatform.size())
@@ -3037,7 +3037,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<Esm> Scenario::getPtr2Esm(const size_t & pos)
+	Esm_ptr Scenario::getPtr2Esm(const size_t & pos)
 	{
 		assert(pos < m_ptrEsm.size());
 		if (pos < m_ptrEsm.size())
@@ -3047,7 +3047,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<Ecm> Scenario::getPtr2Ecm(const size_t & pos)
+	Ecm_ptr Scenario::getPtr2Ecm(const size_t & pos)
 	{
 		assert(pos < m_ptrEcm.size());
 		if (pos < m_ptrEcm.size())
@@ -3057,7 +3057,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<Route> Scenario::getPtr2Route(const size_t & pos)
+	Route_ptr Scenario::getPtr2Route(const size_t & pos)
 	{
 		assert(pos < m_ptrRoute.size());
 		if (pos < m_ptrRoute.size())
@@ -3067,7 +3067,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<EsmStrategy> Scenario::getPtr2EsmStrategy(const size_t & pos)
+	EsmStrategy_ptr Scenario::getPtr2EsmStrategy(const size_t & pos)
 	{
 		assert(pos < m_ptrEsmStrategy.size());
 		if (pos < m_ptrEsmStrategy.size())
@@ -3077,7 +3077,7 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::shared_ptr<EcmStrategy> Scenario::getPtr2EcmStrategy(const size_t & pos)
+	EcmStrategy_ptr Scenario::getPtr2EcmStrategy(const size_t & pos)
 	{
 		assert(pos < m_ptrEcmStrategy.size());
 		if (pos < m_ptrEcmStrategy.size())
@@ -3167,66 +3167,66 @@ namespace sce
 		throw Error("can't return this value (doesn't exist)");
 	}
 
-	std::vector<std::shared_ptr<Vertex>>& Scenario::getAllVertex(void)
+	VertexsVector& Scenario::getAllVertex(void)
 	{
 		return m_ptrVertex;
 	}
 
-	std::vector<std::shared_ptr<Platform>>& Scenario::getAllPlatform(void)
+	PlatformsVector& Scenario::getAllPlatform(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrPlatform;
 	}
 
-	std::vector<std::shared_ptr<Emitter>>& Scenario::getAllEmitter(void)
+	EmittersVector& Scenario::getAllEmitter(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrEmitter;
 	}
 
-	std::vector<std::shared_ptr<Weapon>>& Scenario::getAllWeapon(void)
+	WeaponsVector& Scenario::getAllWeapon(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrWeapon;
 	}
 
-	std::vector<std::shared_ptr<Site>>& Scenario::getAllSite(void)
+	SitesVector& Scenario::getAllSite(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrSite;
 	}
 
-	std::vector<std::shared_ptr<OwnPlatform>>& Scenario::getAllOwnPlatform(void)
+	OwnPlatformsVector& Scenario::getAllOwnPlatform(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrOwnPlatform;
 	}
 
-	std::vector<std::shared_ptr<Esm>>& Scenario::getAllEsm(void)
+	EsmsVector& Scenario::getAllEsm(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrEsm;
 	}
 
-	std::vector<std::shared_ptr<Ecm>>& Scenario::getAllEcm(void)
+	EcmsVector& Scenario::getAllEcm(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrEcm;
 	}
 
-	std::vector<std::shared_ptr<Route>>& Scenario::getAllRoute(void)
+	RoutesVector& Scenario::getAllRoute(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrRoute;
 	}
 
-	std::vector<std::shared_ptr<EsmStrategy>>& Scenario::getAllEsmStrategy(void)
+	EsmStrategyVector& Scenario::getAllEsmStrategy(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrEsmStrategy;
 	}
 
-	std::vector<std::shared_ptr<EcmStrategy>>& Scenario::getAllEcmStrategy(void)
+	EcmStrategyVector& Scenario::getAllEcmStrategy(void)
 	{
 		// TODO: 在此处插入 return 语句
 		return m_ptrEcmStrategy;
@@ -3280,7 +3280,7 @@ namespace sce
 		return m_OwnPlatformRouteRelation;
 	}
 
-	bool Scenario::setPtr2Vertex(const size_t & pos, std::shared_ptr<Vertex> ptr2Entity)
+	bool Scenario::setPtr2Vertex(const size_t & pos, Vertex_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrVertex.size());
 		if (pos < m_ptrVertex.size())
@@ -3291,7 +3291,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Platform(const size_t & pos, std::shared_ptr<Platform> ptr2Entity)
+	bool Scenario::setPtr2Platform(const size_t & pos, Platform_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrPlatform.size());
 		if (pos < m_ptrPlatform.size())
@@ -3302,7 +3302,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Emitter(const size_t & pos, std::shared_ptr<Emitter> ptr2Entity)
+	bool Scenario::setPtr2Emitter(const size_t & pos, Emitter_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrEmitter.size());
 		if (pos < m_ptrEmitter.size())
@@ -3313,7 +3313,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Weapon(const size_t & pos, std::shared_ptr<Weapon> ptr2Entity)
+	bool Scenario::setPtr2Weapon(const size_t & pos, Weapon_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrWeapon.size());
 		if (pos < m_ptrWeapon.size())
@@ -3324,7 +3324,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Site(const size_t & pos, std::shared_ptr<Site> ptr2Entity)
+	bool Scenario::setPtr2Site(const size_t & pos, Site_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrSite.size());
 		if (pos < m_ptrSite.size())
@@ -3335,7 +3335,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2OwnPlatform(const size_t & pos, std::shared_ptr<OwnPlatform> ptr2Entity)
+	bool Scenario::setPtr2OwnPlatform(const size_t & pos, OwnPlatform_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrOwnPlatform.size());
 		if (pos < m_ptrOwnPlatform.size())
@@ -3346,7 +3346,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Esm(const size_t & pos, std::shared_ptr<Esm> ptr2Entity)
+	bool Scenario::setPtr2Esm(const size_t & pos, Esm_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrEsm.size());
 		if (pos < m_ptrEsm.size())
@@ -3357,7 +3357,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Ecm(const size_t & pos, std::shared_ptr<Ecm> ptr2Entity)
+	bool Scenario::setPtr2Ecm(const size_t & pos, Ecm_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrEcm.size());
 		if (pos < m_ptrEcm.size())
@@ -3368,7 +3368,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2Route(const size_t & pos, std::shared_ptr<Route> ptr2Entity)
+	bool Scenario::setPtr2Route(const size_t & pos, Route_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrRoute.size());
 		if (pos < m_ptrRoute.size())
@@ -3379,7 +3379,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2EsmStrategy(const size_t & pos, std::shared_ptr<EsmStrategy> ptr2Entity)
+	bool Scenario::setPtr2EsmStrategy(const size_t & pos, EsmStrategy_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrEsmStrategy.size());
 		if (pos < m_ptrEsmStrategy.size())
@@ -3390,7 +3390,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::setPtr2EcmStrategy(const size_t & pos, std::shared_ptr<EcmStrategy> ptr2Entity)
+	bool Scenario::setPtr2EcmStrategy(const size_t & pos, EcmStrategy_ptr ptr2Entity)
 	{
 		assert(pos < m_ptrEcmStrategy.size());
 		if (pos < m_ptrEcmStrategy.size())
@@ -3401,62 +3401,62 @@ namespace sce
 		return false;
 	}
 
-	void Scenario::addVertex(std::shared_ptr<Vertex> ptr2Entity)
+	void Scenario::addVertex(Vertex_ptr ptr2Entity)
 	{
 		m_ptrVertex.push_back(ptr2Entity);
 	}
 
-	void Scenario::addPlatform(std::shared_ptr<Platform> ptr2Entity)
+	void Scenario::addPlatform(Platform_ptr ptr2Entity)
 	{
 		m_ptrPlatform.push_back(ptr2Entity);
 	}
 
-	void Scenario::addEmitter(std::shared_ptr<Emitter> ptr2Entity)
+	void Scenario::addEmitter(Emitter_ptr ptr2Entity)
 	{
 		m_ptrEmitter.push_back(ptr2Entity);
 	}
 
-	void Scenario::addWeapon(std::shared_ptr<Weapon> ptr2Entity)
+	void Scenario::addWeapon(Weapon_ptr ptr2Entity)
 	{
 		m_ptrWeapon.push_back(ptr2Entity);
 	}
 
-	void Scenario::addSite(std::shared_ptr<Site> ptr2Entity)
+	void Scenario::addSite(Site_ptr ptr2Entity)
 	{
 		m_ptrSite.push_back(ptr2Entity);
 	}
 
-	void Scenario::addOwnPlatform(std::shared_ptr<OwnPlatform> ptr2Entity)
+	void Scenario::addOwnPlatform(OwnPlatform_ptr ptr2Entity)
 	{
 		m_ptrOwnPlatform.push_back(ptr2Entity);
 	}
 
-	void Scenario::addEsm(std::shared_ptr<Esm> ptr2Entity)
+	void Scenario::addEsm(Esm_ptr ptr2Entity)
 	{
 		m_ptrEsm.push_back(ptr2Entity);
 	}
 
-	void Scenario::addEcm(std::shared_ptr<Ecm> ptr2Entity)
+	void Scenario::addEcm(Ecm_ptr ptr2Entity)
 	{
 		m_ptrEcm.push_back(ptr2Entity);
 	}
 
-	void Scenario::addRoute(std::shared_ptr<Route> ptr2Entity)
+	void Scenario::addRoute(Route_ptr ptr2Entity)
 	{
 		m_ptrRoute.push_back(ptr2Entity);
 	}
 
-	void Scenario::addEsmStrategy(std::shared_ptr<EsmStrategy> ptr2Entity)
+	void Scenario::addEsmStrategy(EsmStrategy_ptr ptr2Entity)
 	{
 		m_ptrEsmStrategy.push_back(ptr2Entity);
 	}
 
-	void Scenario::addEcmStrategy(std::shared_ptr<EcmStrategy> ptr2Entity)
+	void Scenario::addEcmStrategy(EcmStrategy_ptr ptr2Entity)
 	{
 		m_ptrEcmStrategy.push_back(ptr2Entity);
 	}
 
-	bool Scenario::insertPtr2Vertex(const size_t & pos, std::shared_ptr<Vertex> ptr2Entity)
+	bool Scenario::insertPtr2Vertex(const size_t & pos, Vertex_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrVertex.size());
 		if (pos <= m_ptrVertex.size())
@@ -3467,7 +3467,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Platform(const size_t & pos, std::shared_ptr<Platform> ptr2Entity)
+	bool Scenario::insertPtr2Platform(const size_t & pos, Platform_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrPlatform.size());
 		if (pos <= m_ptrPlatform.size())
@@ -3478,7 +3478,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Emitter(const size_t & pos, std::shared_ptr<Emitter> ptr2Entity)
+	bool Scenario::insertPtr2Emitter(const size_t & pos, Emitter_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrEmitter.size());
 		if (pos <= m_ptrEmitter.size())
@@ -3489,7 +3489,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Weapon(const size_t & pos, std::shared_ptr<Weapon> ptr2Entity)
+	bool Scenario::insertPtr2Weapon(const size_t & pos, Weapon_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrWeapon.size());
 		if (pos <= m_ptrWeapon.size())
@@ -3500,7 +3500,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Site(const size_t & pos, std::shared_ptr<Site> ptr2Entity)
+	bool Scenario::insertPtr2Site(const size_t & pos, Site_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrSite.size());
 		if (pos <= m_ptrSite.size())
@@ -3511,7 +3511,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2OwnPlatform(const size_t & pos, std::shared_ptr<OwnPlatform> ptr2Entity)
+	bool Scenario::insertPtr2OwnPlatform(const size_t & pos, OwnPlatform_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrOwnPlatform.size());
 		if (pos <= m_ptrOwnPlatform.size())
@@ -3522,7 +3522,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Esm(const size_t & pos, std::shared_ptr<Esm> ptr2Entity)
+	bool Scenario::insertPtr2Esm(const size_t & pos, Esm_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrEsm.size());
 		if (pos <= m_ptrEsm.size())
@@ -3533,7 +3533,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Ecm(const size_t & pos, std::shared_ptr<Ecm> ptr2Entity)
+	bool Scenario::insertPtr2Ecm(const size_t & pos, Ecm_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrEcm.size());
 		if (pos <= m_ptrEcm.size())
@@ -3544,7 +3544,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2Route(const size_t & pos, std::shared_ptr<Route> ptr2Entity)
+	bool Scenario::insertPtr2Route(const size_t & pos, Route_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrRoute.size());
 		if (pos <= m_ptrRoute.size())
@@ -3555,7 +3555,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2EsmStrategy(const size_t & pos, std::shared_ptr<EsmStrategy> ptr2Entity)
+	bool Scenario::insertPtr2EsmStrategy(const size_t & pos, EsmStrategy_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrEsmStrategy.size());
 		if (pos <= m_ptrEsmStrategy.size())
@@ -3566,7 +3566,7 @@ namespace sce
 		return false;
 	}
 
-	bool Scenario::insertPtr2EcmStrategy(const size_t & pos, std::shared_ptr<EcmStrategy> ptr2Entity)
+	bool Scenario::insertPtr2EcmStrategy(const size_t & pos, EcmStrategy_ptr ptr2Entity)
 	{
 		assert(pos <= m_ptrEcmStrategy.size());
 		if (pos <= m_ptrEcmStrategy.size())
@@ -4002,57 +4002,57 @@ namespace sce
 		return false;
 	}
 
-	void Scenario::setAllVertex(std::vector<std::shared_ptr<Vertex>>& ptr2AllEntities)
+	void Scenario::setAllVertex(VertexsVector& ptr2AllEntities)
 	{
 		m_ptrVertex = ptr2AllEntities;
 	}
 
-	void Scenario::setAllPlatform(std::vector<std::shared_ptr<Platform>>& ptr2AllEntities)
+	void Scenario::setAllPlatform(PlatformsVector& ptr2AllEntities)
 	{
 		m_ptrPlatform = ptr2AllEntities;
 	}
 
-	void Scenario::setAllEmitter(std::vector<std::shared_ptr<Emitter>>& ptr2AllEntities)
+	void Scenario::setAllEmitter(EmittersVector& ptr2AllEntities)
 	{
 		m_ptrEmitter = ptr2AllEntities;
 	}
 
-	void Scenario::setAllWeapon(std::vector<std::shared_ptr<Weapon>>& ptr2AllEntities)
+	void Scenario::setAllWeapon(WeaponsVector& ptr2AllEntities)
 	{
 		m_ptrWeapon = ptr2AllEntities;
 	}
 
-	void Scenario::setAllSite(std::vector<std::shared_ptr<Site>>& ptr2AllEntities)
+	void Scenario::setAllSite(SitesVector& ptr2AllEntities)
 	{
 		m_ptrSite = ptr2AllEntities;
 	}
 
-	void Scenario::setAllOwnPlatform(std::vector<std::shared_ptr<OwnPlatform>>& ptr2AllEntities)
+	void Scenario::setAllOwnPlatform(OwnPlatformsVector& ptr2AllEntities)
 	{
 		m_ptrOwnPlatform = ptr2AllEntities;
 	}
 
-	void Scenario::setAllEsm(std::vector<std::shared_ptr<Esm>>& ptr2AllEntities)
+	void Scenario::setAllEsm(EsmsVector& ptr2AllEntities)
 	{
 		m_ptrEsm = ptr2AllEntities;
 	}
 
-	void Scenario::setAllEcm(std::vector<std::shared_ptr<Ecm>>& ptr2AllEntities)
+	void Scenario::setAllEcm(EcmsVector& ptr2AllEntities)
 	{
 		m_ptrEcm = ptr2AllEntities;
 	}
 
-	void Scenario::setAllRoute(std::vector<std::shared_ptr<Route>>& ptr2AllEntities)
+	void Scenario::setAllRoute(RoutesVector& ptr2AllEntities)
 	{
 		m_ptrRoute = ptr2AllEntities;
 	}
 
-	void Scenario::setAllEsmStrategy(std::vector<std::shared_ptr<EsmStrategy>>& ptr2AllEntities)
+	void Scenario::setAllEsmStrategy(EsmStrategyVector& ptr2AllEntities)
 	{
 		m_ptrEsmStrategy = ptr2AllEntities;
 	}
 
-	void Scenario::setAllEcmStrategy(std::vector<std::shared_ptr<EcmStrategy>>& ptr2AllEntities)
+	void Scenario::setAllEcmStrategy(EcmStrategyVector& ptr2AllEntities)
 	{
 		m_ptrEcmStrategy = ptr2AllEntities;
 	}

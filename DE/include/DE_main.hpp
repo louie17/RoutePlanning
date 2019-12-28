@@ -34,7 +34,7 @@ namespace de
 	* @param mutationStrategy ±äÒì²ßÂÔ£»
 	* @param listener ÕìÌýÆ÷¡£
 	*/
-	NVectorPtr De_alg(sce::Site_WeaponRange_relation &swRelation,sce::Vertexs &vertexs,sce::Point &startPoint, sce::Point &endPoint, const size_t &population_size, const size_t &initial_Node_Number, const size_t &evolution_Number, const double &weight, const double &cross_Probability)
+	NVectorPtr De_alg(sce::Site_WeaponRange_relation &swRelation,sce::VertexsVector &vertexs,sce::Point &startPoint, sce::Point &endPoint, const size_t &population_size, const size_t &initial_Node_Number, const size_t &evolution_Number, const double &weight, const double &cross_Probability)
 	{
 		try
 		{

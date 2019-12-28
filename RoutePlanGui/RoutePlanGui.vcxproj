@@ -75,19 +75,19 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>msvc2015_64</QtInstall>
-    <QtModules>core;xml;gui;xmlpatterns;widgets</QtModules>
+    <QtModules>core;xml;gui;xmlpatterns;widgets;charts</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>msvc2015_64</QtInstall>
-    <QtModules>core;xml;gui;xmlpatterns;widgets</QtModules>
+    <QtModules>core;xml;gui;xmlpatterns;widgets;charts</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <QtInstall>msvc2015_64</QtInstall>
-    <QtModules>core;xml;gui;xmlpatterns;widgets</QtModules>
+    <QtModules>core;xml;gui;xmlpatterns;widgets;charts</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <QtInstall>msvc2015_64</QtInstall>
-    <QtModules>core;xml;gui;xmlpatterns;widgets</QtModules>
+    <QtModules>core;xml;gui;xmlpatterns;widgets;charts</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -99,7 +99,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)EigenLib;$(SolutionDir)QAStar\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -114,7 +114,7 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)EigenLib;$(SolutionDir)QAStar\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -125,7 +125,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)EigenLib;$(SolutionDir)QAStar\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;$(SolutionDir)QAStar\Output\$(Configuration)\QAStar.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -133,7 +133,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)QAStar\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DE\include;$(SolutionDir)ScenarioEntity\include;$(SolutionDir)EigenLib;$(SolutionDir)QAStar\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)ScenarioEntity\Output\$(Configuration)\ScenarioEntity.lib;$(SolutionDir)QAStar\Output\$(Configuration)\QAStar.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -157,6 +157,7 @@
     <ClCompile Include="Rf.cpp" />
     <ClCompile Include="Rf_values.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="RouteEvaluation.cpp" />
     <ClCompile Include="Scan.cpp" />
     <ClCompile Include="Section_page.cpp" />
     <ClCompile Include="tech_page.cpp" />
@@ -172,6 +173,7 @@
     <QtUic Include="MainWindow.ui" />
     <QtUic Include="MainWindow2.ui" />
     <QtUic Include="MainWindow4.ui" />
+    <QtUic Include="MarkovEvaluate.ui" />
     <QtUic Include="Mission_page.ui" />
     <QtUic Include="point_page.ui" />
     <QtUic Include="Pri.ui" />
@@ -212,6 +214,7 @@
   <ItemGroup>
     <ClInclude Include="MyTab.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RouteEvaluation.h" />
     <ClInclude Include="xml_prase.h" />
     <QtMoc Include="tech_page.h" />
     <QtMoc Include="Section_page.h" />

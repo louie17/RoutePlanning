@@ -16,6 +16,7 @@
 #include "Rf_values_page.h"
 #include "Pw_values_page.h"
 #include "point_page.h"
+//#include "MarkovEvaluate.h"
 #include <QtWidgets/QApplication>
 #include <stdio.h>
 #include <iostream>
@@ -43,6 +44,7 @@ int main(int argc, char *argv[])
 	tech_page tech;
 	Mission_page mission;
 	point_page point;
+	//Markov_evaluate makov;
 	w1.show();
 
 	QObject::connect(&w1, SIGNAL(sign_mission()), &mission, SLOT(show_mission()));
@@ -91,6 +93,8 @@ int main(int argc, char *argv[])
 
 	QObject::connect(&pri, SIGNAL(sign_add_new()), &pri_v, SLOT(show_pri_v()));
 	QObject::connect(&pri, SIGNAL(sign_pri_values()), &pri_v, SLOT(show_pri_v()));
+
+	//QObject::connect(&w3, SIGNAL(go_markov()), &makov, SLOT(markov_show()));
 
 	return a.exec();
 }

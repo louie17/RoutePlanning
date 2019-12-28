@@ -710,6 +710,37 @@ void RoutePlannGui::listDom(QDomElement &docelem)
 		if (!f_oecm) qDebug() << "No OwnPlatformEcmRelation data was found!";
 		if (!f_ecmecms) qDebug() << "No EcmEcmStrategyRelation data was found!";
 		if (!f_orr) qDebug() << "No OwnPlatformRouteRelation data was found!";
+
+		//根据位置获取每个site上的Emitter,Weapon
+		for (size_t i = 0; i < scenario.getAllSite().size(); ++i)
+		{
+			auto iterS = scenario.getAllSite().at(i);
+			for (size_t j = 0; j < scenario.getAllPlatformSiteRelation().size(); ++j)
+			{
+				//获取 site-weapon键值对，无序且允许重复关键值
+				auto iterPSR = scenario.getAllPlatformSiteRelation().at(j);
+				if (iterPSR.getSiteName() == iterS->getName())
+				{
+					for (size_t z = 0; z < scenario.getAllPlatformWeaponRelation().size(); ++z)
+					{
+						auto iterPWR = scenario.getAllPlatformWeaponRelation().at(z);
+						if (iterPSR.getPlatformName() == iterPWR.getPlatformName())
+						{
+							scenario.insertSiteWeaponRelation(iterS, iterPWR.getWeapon());
+						}
+					}
+					//获取 site-emitter键值对，无序且允许重复关键值
+					for (size_t z = 0; z < scenario.getAllPlatformEmitterRelation().size(); ++z)
+					{
+						auto iterPWR = scenario.getAllPlatformEmitterRelation().at(z);
+						if (iterPSR.getPlatformName() == iterPWR.getPlatformName())
+						{
+							scenario.insertSiteEmitterRelation(iterS, iterPWR.getEmitter());
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
